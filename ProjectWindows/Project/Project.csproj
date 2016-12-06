@@ -117,8 +117,8 @@
     <Compile Include="Views\OfficePage.xaml.cs">
       <DependentUpon>OfficePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RichtingPage.xaml.cs">
-      <DependentUpon>RichtingPage.xaml</DependentUpon>
+    <Compile Include="Views\InformaticaPage.xaml.cs">
+      <DependentUpon>InformaticaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -174,7 +174,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RichtingPage.xaml">
+    <Page Include="Views\InformaticaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

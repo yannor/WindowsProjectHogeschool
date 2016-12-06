@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Project.Views.RichtingPage"
+    x:Class="Project.Views.InformaticaPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Project.Views"
@@ -63,7 +63,7 @@
             <StackPanel>
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
                 <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
-                <WebView x:Name="webView" Source="https://www.youtube.com/embed/YE8g2XkHXbg" Height="600"/>
+                <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=OneWay}" Height="600"/>
             </StackPanel>
         </ScrollViewer>
 

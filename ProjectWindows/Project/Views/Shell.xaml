@@ -26,7 +26,7 @@
                                Text="Home" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
-            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:RichtingPage">
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:InformaticaPage">
                 <StackPanel Orientation="Horizontal">
                     
                     <SymbolIcon Width="48"
