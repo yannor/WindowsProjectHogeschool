@@ -16,5 +16,11 @@ namespace Project.Models
             Html=""
         };
 
+        public static Richting RichtingOfficeManagement = new Richting()
+        {
+            Title = "Office Management",
+            Description = "Je bent een doener en je houdt van uitdagingen. In een team ben jij diegene die organiseert en coördineert. Je weet van aanpakken en bent een punctuele multitasker. Voor jou moeten de zaken vooruitgaan, goed getimed en gepland. Talen zijn volledig je ding en je communiceert graag. Je blik is internationaal, je aanpak no-nonsense.",
+            Html = ""
+        };
     }
 }
