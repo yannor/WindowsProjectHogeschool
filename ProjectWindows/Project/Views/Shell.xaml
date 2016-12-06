@@ -12,7 +12,7 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       mc:Ignorable="d">
 
-    <Controls:HamburgerMenu x:Name="MyHamburgerMenu">
+    <Controls:HamburgerMenu x:Name="MyHamburgerMenu" IsOpen="True">
 
         <Controls:HamburgerMenu.PrimaryButtons>
             <!--  mainpage button  -->
@@ -26,7 +26,20 @@
                                Text="Home" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
+            <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:RichtingPage">
+                <StackPanel Orientation="Horizontal">
+                    
+                    <SymbolIcon Width="48"
+                                Height="48"
+                                Symbol="BackToWindow" />
+                    <TextBlock Margin="12,0,0,0"
+                               VerticalAlignment="Center"
+                               Text="Toegepaste Informatica" />
+                </StackPanel>
+            </Controls:HamburgerButtonInfo>
         </Controls:HamburgerMenu.PrimaryButtons>
+        
+        
 
         <Controls:HamburgerMenu.SecondaryButtons>
             <!--  profile button  -->
