@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Project.Models;
+using Project.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,6 +28,11 @@ namespace Project.Views
         {
             this.InitializeComponent();
            NavigationCacheMode = NavigationCacheMode.Disabled;
+            
+            ViewModel.Richting = DummyDataSource.RichtingToegepasteInformatica;
+     
         }
+
+        
     }
 }

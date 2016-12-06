@@ -10,7 +10,7 @@
     mc:Ignorable="d">
 
     <Page.DataContext>
-        <viewModels:RichtingViewModel x:Name="ViewModel" />
+        <viewModels:RichtingViewModel  x:Name="ViewModel"/>
     </Page.DataContext>
 
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -63,6 +63,7 @@
             <StackPanel>
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
                 <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
+                <WebView x:Name="webView" Source="https://www.youtube.com/embed/YE8g2XkHXbg" Height="600"/>
             </StackPanel>
         </ScrollViewer>
 

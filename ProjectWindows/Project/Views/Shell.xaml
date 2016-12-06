@@ -28,6 +28,7 @@
             </Controls:HamburgerButtonInfo>
             <Controls:HamburgerButtonInfo ClearHistory="True" PageType="views:RichtingPage">
                 <StackPanel Orientation="Horizontal">
+                    
                     <SymbolIcon Width="48"
                                 Height="48"
                                 Symbol="BackToWindow" />

@@ -13,9 +13,10 @@ namespace Project.ViewModels
 {
     public class RichtingViewModel : ViewModelBase
     {
+        
+
         public RichtingViewModel()
         {
-            Richting = DummyDataSource.RichtingToegepasteInformatica;
         }
 
         private Richting _richting; 
@@ -28,6 +29,9 @@ namespace Project.ViewModels
         {
             
             Richting = (suspensionState.ContainsKey(nameof(Richting))) ? (Richting)suspensionState[nameof(Richting)] : (Richting)parameter;
+            Views.Busy.SetBusy(true, "Laden");
+            await Task.Delay(3000);
+            Views.Busy.SetBusy(false);
             await Task.CompletedTask;
         }
 
