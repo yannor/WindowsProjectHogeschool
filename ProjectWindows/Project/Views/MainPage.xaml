@@ -9,106 +9,61 @@
       xmlns:local="using:Project.Views"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:vm="using:Project.ViewModels"
-      mc:Ignorable="d">
+      mc:Ignorable="d"
+      xmlns:control="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      xmlns:maps="using:Windows.UI.Xaml.Controls.Maps">
+
 
     <Page.DataContext>
-        <vm:MainPageViewModel x:Name="ViewModel" />
+        <vm:MainPageViewModel x:Name="ViewModel"/>
     </Page.DataContext>
 
-    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
-                <VisualState x:Name="VisualStateNarrow">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource NarrowMinWidth}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--  TODO: change properties for narrow view  -->
-                        <Setter Target="stateTextBox.Text" Value="Narrow Visual State" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="VisualStateNormal">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource NormalMinWidth}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--  TODO: change properties for normal view  -->
-                        <Setter Target="stateTextBox.Text" Value="Normal Visual State" />
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="VisualStateWide">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="{StaticResource WideMinWidth}" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <!--  TODO: change properties for wide view  -->
-                        <Setter Target="stateTextBox.Text" Value="Wide Visual State" />
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
-        <controls:PageHeader x:Name="pageHeader"
+    <ScrollViewer>
+        <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            
+            <controls:PageHeader x:Name="pageHeader"
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="Main Page">
+                             Text="Home Page">
 
-            <!--  secondary commands  -->
-            <controls:PageHeader.SecondaryCommands>
-                <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />
-                <AppBarButton Click="{x:Bind ViewModel.GotoPrivacy}" Label="Privacy" />
-                <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />
-            </controls:PageHeader.SecondaryCommands>
+                <!--  secondary commands  -->
+                <controls:PageHeader.SecondaryCommands>
+                    <AppBarButton Click="{x:Bind ViewModel.GotoSettings}" Label="Settings" />
+                    <AppBarButton Click="{x:Bind ViewModel.GotoPrivacy}" Label="Privacy" />
+                    <AppBarButton Click="{x:Bind ViewModel.GotoAbout}" Label="About" />
+                </controls:PageHeader.SecondaryCommands>
 
-        </controls:PageHeader>
+            </controls:PageHeader>
 
-        <RelativePanel EntranceNavigationTransitionInfo.IsTargetElement="True"
+            <RelativePanel EntranceNavigationTransitionInfo.IsTargetElement="True"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="pageHeader">
 
+                <Image x:Name="Titel"  Source="../Assets/HoGentAalst.jpg"  Stretch="Fill" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
 
-            <controls:Resizer x:Name="parameterResizer" Margin="16,16,16,0">
+                <TextBlock x:Name="campus" Padding="0,5,0,5" Text="Campus" FontSize="18" RelativePanel.Below="Titel" />
+                <TextBlock x:Name="uitlegCampus" Margin="0,0,10,0" Padding="0,5,0,5" Text="Studeren aan HoGent campus Aalst betekent studeren in een gezellige provinciestad. Voor veel studenten is de HoGent in Aalst de campus vlakbij huis. De campus ligt dicht bij het centrum en de winkelstraat en is op wandelafstand van het station en de parking Keizershallen.
 
-                <TextBox MinWidth="150"
-                         MinHeight="62"
-                         Header="Parameter to pass"
-                         Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         TextWrapping="Wrap">
-                    <Interactivity:Interaction.Behaviors>
+Als student ben je er nooit anoniem en vind je er onmiddellijk je weg. HoGent campus Aalst staat voor een kleinschalige, gerichte aanpak met veel aandacht voor het individu. Typerend zijn de kleine klasgroepen en het familiale karakter. Docenten gaan voor een persoonlijke aanpak en coachen heel gericht je competenties en talenten.
 
-                        <!--  enable submit on enter key  -->
-                        <Behaviors:KeyBehavior Key="Enter">
-                            <Core:CallMethodAction MethodName="GotoDetailsPage" TargetObject="{Binding}" />
-                        </Behaviors:KeyBehavior>
-
-                        <!--  focus on textbox when page loads  -->
-                        <Core:EventTriggerBehavior>
-                            <Behaviors:FocusAction />
-                        </Core:EventTriggerBehavior>
-
-                    </Interactivity:Interaction.Behaviors>
-                </TextBox>
-
-            </controls:Resizer>
-
-            <Button x:Name="submitButton"
-                    Click="{x:Bind ViewModel.GotoDetailsPage}"
-                    Content="Submit"
-                    RelativePanel.AlignBottomWith="parameterResizer"
-                    RelativePanel.RightOf="parameterResizer" />
-
-            <TextBlock x:Name="stateTextBox"
-                       Margin="16,16,0,0"
-                       RelativePanel.AlignLeftWith="parameterResizer"
-                       RelativePanel.Below="parameterResizer"
-                       Text="Current Visual State" />
-
+Campus Aalst is bovendien zeer actief en heeft zoals de andere campussen van faculteit Bedrijf en Organisatie een sterk netwerk van nationale en internationale bedrijven. Theorie en praktijk gaan op de HoGent altijd hand in hand. Uniek is de inbreng van de lokale ondernemers. Zij bieden interessante stageplaatsen en werken mee aan heel wat initiatieven. Voor een gemotiveerde student de ideale opstap naar een boeiende job in de regio."                       
+                           TextWrapping="Wrap" RelativePanel.Below="campus"/>
+                <TextBlock x:Name="Nieuws" Padding="0,5,0,5" Text="Nieuws" FontSize="18" RelativePanel.Below="uitlegCampus"/>
+                <TextBlock x:Name="nieuwsItem"  Padding="0,5,0,5" Text="datatemplate voor nieuwsitems?" RelativePanel.Below="Nieuws"/>
+                <Grid RelativePanel.Below="nieuwsItem">
+                 <Grid.RowDefinitions>
+                        <RowDefinition Height="1000"></RowDefinition>
+                 </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1000"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                <maps:MapControl x:Name="MyMap" ZoomLevel="10" Grid.Row="0" Grid.Column="0"/>
+                </Grid>
+                </RelativePanel>
         </RelativePanel>
-
-    </RelativePanel>
+    </ScrollViewer>
 </Page>
 
