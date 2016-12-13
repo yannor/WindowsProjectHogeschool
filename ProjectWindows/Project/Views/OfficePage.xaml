@@ -54,14 +54,21 @@
 
         <!--  content  -->
         <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
-                      Padding="12,8,0,0"
+                     
                       RelativePanel.AlignBottomWithPanel="True"
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="pageHeader"
                       VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <Image x:Name="Titel"  Source="../Assets/officemanagement.jpg"  Stretch="Fill" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF0081C5">
+                        </SolidColorBrush>
+                    </Grid.Background>
+                    <Image x:Name="Titel"  Source="../Assets/officemanagement.jpg" MaxHeight="200" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+                </Grid>
 
 
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
