@@ -50,7 +50,7 @@
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
                              RelativePanel.AlignTopWithPanel="True"
-                             Text="Richting" />
+                             Text="{x:Bind ViewModel.Richting.Title}" />
 
         <!--  content  -->
         <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
