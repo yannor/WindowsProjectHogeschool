@@ -61,9 +61,17 @@
                       RelativePanel.Below="pageHeader"
                       VerticalScrollBarVisibility="Auto">
             <StackPanel>
-                <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
-                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
-                <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=OneWay}" Height="600"/>
+                <StackPanel x:Name="SPLoggedOut" Visibility="Collapsed">
+                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=OneWay}" />
+                    <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
+                    <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=OneWay}" Height="500" />
+                </StackPanel>
+                <StackPanel x:Name="SPLoggedIn" Visibility="Visible">
+                    <TextBox Header="Titel:" Text="{x:Bind ViewModel.Richting.Title, Mode=OneWay}"  />
+                    <TextBox TextWrapping="Wrap" Header="Beschrijving:" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" Height="500" />
+                    <TextBox Header="Video url:" Text="{x:Bind ViewModel.Richting.Html, Mode=OneWay}"  />
+                    <Button x:Name="btnSave" Content="Save"/>
+                </StackPanel>
             </StackPanel>
         </ScrollViewer>
 
