@@ -10,6 +10,7 @@ namespace Project.Models
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Description2 { get; set; }
         public string Html { get; set; }
         public List<Richting> Richtingen { get; set; }
         public string Activiteiten { get; set; }
