@@ -20,7 +20,7 @@
 
     <ScrollViewer>
         <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            
+
             <controls:PageHeader x:Name="pageHeader"
                              RelativePanel.AlignLeftWithPanel="True"
                              RelativePanel.AlignRightWithPanel="True"
@@ -36,33 +36,31 @@
 
             </controls:PageHeader>
 
-            <RelativePanel EntranceNavigationTransitionInfo.IsTargetElement="True"
+            <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
                        RelativePanel.AlignBottomWithPanel="True"
                        RelativePanel.AlignLeftWithPanel="True"
                        RelativePanel.AlignRightWithPanel="True"
                        RelativePanel.Below="pageHeader">
-
-                <Image x:Name="Titel"  Source="../Assets/HoGentAalst.jpg"  Stretch="Fill" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-
-                <TextBlock x:Name="campus" Padding="0,5,0,5" Text="Campus" FontSize="18" RelativePanel.Below="Titel" />
-                <TextBlock x:Name="uitlegCampus" Margin="0,0,10,0" Padding="0,5,0,5" Text="Studeren aan HoGent campus Aalst betekent studeren in een gezellige provinciestad. Voor veel studenten is de HoGent in Aalst de campus vlakbij huis. De campus ligt dicht bij het centrum en de winkelstraat en is op wandelafstand van het station en de parking Keizershallen.
+                <StackPanel>
+                    <Grid x:Name="Titel" RelativePanel.AlignHorizontalCenterWithPanel="true">
+                        <Grid.Background>
+                            <SolidColorBrush Color="#FF0081C5"></SolidColorBrush>
+                        </Grid.Background>
+                        <Image Source="../Assets/HoGentAalst.jpg" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                    </Grid>
+                    <TextBlock x:Name="campus" Padding="0,5,0,5" Text="Campus" FontSize="18" RelativePanel.Below="Titel" />
+                    <TextBlock x:Name="uitlegCampus" Margin="0,0,10,0" Padding="0,5,0,5" Text="Studeren aan HoGent campus Aalst betekent studeren in een gezellige provinciestad. Voor veel studenten is de HoGent in Aalst de campus vlakbij huis. De campus ligt dicht bij het centrum en de winkelstraat en is op wandelafstand van het station en de parking Keizershallen.
 
 Als student ben je er nooit anoniem en vind je er onmiddellijk je weg. HoGent campus Aalst staat voor een kleinschalige, gerichte aanpak met veel aandacht voor het individu. Typerend zijn de kleine klasgroepen en het familiale karakter. Docenten gaan voor een persoonlijke aanpak en coachen heel gericht je competenties en talenten.
 
 Campus Aalst is bovendien zeer actief en heeft zoals de andere campussen van faculteit Bedrijf en Organisatie een sterk netwerk van nationale en internationale bedrijven. Theorie en praktijk gaan op de HoGent altijd hand in hand. Uniek is de inbreng van de lokale ondernemers. Zij bieden interessante stageplaatsen en werken mee aan heel wat initiatieven. Voor een gemotiveerde student de ideale opstap naar een boeiende job in de regio."                       
                            TextWrapping="Wrap" RelativePanel.Below="campus"/>
-                <TextBlock x:Name="Nieuws" Padding="0,5,0,5" Text="Nieuws" FontSize="18" RelativePanel.Below="uitlegCampus"/>
-                <TextBlock x:Name="nieuwsItem"  Padding="0,5,0,5" Text="datatemplate voor nieuwsitems?" RelativePanel.Below="Nieuws"/>
-                <Grid RelativePanel.Below="nieuwsItem">
-                 <Grid.RowDefinitions>
-                        <RowDefinition Height="1000"></RowDefinition>
-                 </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1000"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                <maps:MapControl x:Name="MyMap" ZoomLevel="10" Grid.Row="0" Grid.Column="0"/>
-                </Grid>
-                </RelativePanel>
+                    <TextBlock x:Name="Nieuws" Padding="0,5,0,5" Text="Nieuws" FontSize="18" RelativePanel.Below="uitlegCampus"/>
+                    <TextBlock x:Name="nieuwsItem"  Padding="0,5,0,5" Text="datatemplate voor nieuwsitems?" RelativePanel.Below="Nieuws"/>
+                    <Button Content="Bereken route" Click="Button_Click"/>
+                    <maps:MapControl x:Name="MyMap"  ZoomLevel="16" Height="350"/>
+                </StackPanel>
+            </ScrollViewer>
         </RelativePanel>
     </ScrollViewer>
 </Page>

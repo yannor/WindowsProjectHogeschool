@@ -6,6 +6,8 @@ using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
+using Windows.Services.Maps;
+using Windows.UI;
 using Windows.UI.Xaml.Controls.Maps;
 using Template10.Services.NavigationService;
 
@@ -26,7 +28,7 @@ namespace Project.Views
             showPointOnMap();
         }
 
-        public void showPointOnMap()
+        public async void showPointOnMap()
         {
             //50,937000, 4,033180
             BasicGeoposition endLocation = new BasicGeoposition() { Latitude = 50.937000, Longitude = 4.033180 };
@@ -39,23 +41,84 @@ namespace Project.Views
             mapIcon2.Title = "Hogent Campus Aalst";
             mapIcon2.ZIndex = 0;
             MyMap.MapElements.Add(mapIcon2);
-
+            await MyMap.TrySetViewAsync(gp2);
 
         }
-
-        private void informatica_Click(object sender, RoutedEventArgs e)
+       
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            ShowRouteOnMap();
         }
 
-        private void bedrijfsmanagement_Click(object sender, RoutedEventArgs e)
+        private async void ShowRouteOnMap()
         {
+            // Request permission to access location
+            var accessStatus = await Geolocator.RequestAccessAsync();
+
+            switch (accessStatus)
+            {
+                case GeolocationAccessStatus.Allowed:
+                    // If DesiredAccuracy or DesiredAccuracyInMeters are not set (or value is 0), DesiredAccuracy.Default is used.
+                    Geolocator geolocator = new Geolocator { DesiredAccuracyInMeters = 100 };
+
+                    // Carry out the operation
+                    Geoposition startPosition = await geolocator.GetGeopositionAsync().AsTask();
+                    BasicGeoposition endLocation = new BasicGeoposition() { Latitude = 50.937000, Longitude = 4.033180 };
+                    BasicGeoposition gep = new BasicGeoposition();
+                    gep.Latitude = startPosition.Coordinate.Latitude;
+                    gep.Longitude = startPosition.Coordinate.Longitude;
+                    Geopoint gp1 = new Geopoint(gep);
+                    Geopoint gp2 = new Geopoint(endLocation);
+                   
+                    // Get the route between the points.
+                    MapRouteFinderResult routeResult =
+                          await MapRouteFinder.GetDrivingRouteAsync(
+                          gp1,
+                          gp2,
+                          MapRouteOptimization.Time,
+                          MapRouteRestrictions.None);
+
+                    // Create a MapIcon.
+                    MapIcon mapIcon1 = new MapIcon();
+                    mapIcon1.Location = gp1;
+                    mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                    mapIcon1.Title = "Uw locatie";
+                    mapIcon1.ZIndex = 0;
+                    // Add the MapIcon to the map.
+                    MyMap.MapElements.Add(mapIcon1);
+
+                    MapIcon mapIcon2 = new MapIcon();
+                    mapIcon2.Location = gp2;
+                    mapIcon2.NormalizedAnchorPoint = new Point(0.5, 1.0);
+                    mapIcon2.Title = "Hogent Campus Aalst Arbeidstraat 14";
+                    mapIcon2.ZIndex = 0;
+                    MyMap.MapElements.Add(mapIcon2);
+
+                    if (routeResult.Status == MapRouteFinderStatus.Success)
+                    {
+                        // Use the route to initialize a MapRouteView.
+                        MapRouteView viewOfRoute = new MapRouteView(routeResult.Route);
+                        viewOfRoute.RouteColor = Colors.Yellow;
+                        viewOfRoute.OutlineColor = Colors.Black;
+
+                        // Add the new MapRouteView to the Routes collection
+                        // of the MapControl.
+                        MyMap.Routes.Add(viewOfRoute);
+
+                        // Fit the MapControl to the route.
+                        await MyMap.TrySetViewBoundsAsync(
+                              routeResult.Route.BoundingBox,
+                              null,
+                              Windows.UI.Xaml.Controls.Maps.MapAnimationKind.None);
+                    }
+
+                    break;
+                    case GeolocationAccessStatus.Denied:
+                    //              
+                    break;
+            }
 
         }
 
-        private void officemanagement_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
