@@ -61,6 +61,9 @@
                       RelativePanel.Below="pageHeader"
                       VerticalScrollBarVisibility="Auto">
             <StackPanel>
+                <Image x:Name="Titel"  Source="../Assets/officemanagement.jpg"  Stretch="Fill" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+
                 <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
                 <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
             </StackPanel>
