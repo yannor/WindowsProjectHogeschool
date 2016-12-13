@@ -17,6 +17,7 @@ namespace Project.ViewModels
 
         public RichtingViewModel()
         {
+            IsLoggedIn = true;
         }
 
         private Richting _richting; 
@@ -24,7 +25,21 @@ namespace Project.ViewModels
             get { return _richting; }
             set { _richting = value;RaisePropertyChanged(); }
         }
-        
+
+        private Boolean _isLoggedIn;
+
+        public Boolean IsLoggedIn {
+            get { return _isLoggedIn; }
+            set { _isLoggedIn = value; RaisePropertyChanged(); }
+        }
+
+        private DelegateCommand _saveCommand;
+        public DelegateCommand SaveCommand
+            => _saveCommand ?? (_saveCommand = new DelegateCommand(() =>
+            {
+                IsLoggedIn = !IsLoggedIn;
+            }));
+
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
             
