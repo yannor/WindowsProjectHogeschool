@@ -28,7 +28,7 @@ namespace Project.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            showPointOnMap();
+            showPointOnMap(); 
         }
 
         //opendeurdag toevoegen aan kalender als evenement
