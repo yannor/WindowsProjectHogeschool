@@ -63,7 +63,7 @@ namespace Project.ViewModels
         {
 
             Richting = (suspensionState.ContainsKey(nameof(Richting))) ? (Richting)suspensionState[nameof(Richting)] : (Richting)parameter;
-            IsLoggedIn = (suspensionState.ContainsKey(nameof(IsLoggedIn))) ? (Boolean)suspensionState[nameof(IsLoggedIn)] : (Boolean)parameter;
+            //IsLoggedIn = (suspensionState.ContainsKey(nameof(IsLoggedIn))) ? (Boolean)suspensionState[nameof(IsLoggedIn)] : (Boolean)parameter;
 
 
             Views.Busy.SetBusy(true, "Laden");
