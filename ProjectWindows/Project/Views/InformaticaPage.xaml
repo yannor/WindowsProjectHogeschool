@@ -84,9 +84,10 @@
                       VerticalScrollBarVisibility="Auto">
             <StackPanel>
                 <StackPanel x:Name="SPLoggedOut" Visibility="Collapsed">
-                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=OneWay}" />
-                    <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
-                    <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=OneWay}" Height="500" />
+                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
+                    <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" />
+                    <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=TwoWay}" Height="500" />
+                    <Button x:Name="btnEdit" Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
                 </StackPanel>
                 <StackPanel x:Name="SPLoggedIn" Visibility="Visible">
                     <TextBox x:Name="txtTitle"  Header="Titel:" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}"  />
