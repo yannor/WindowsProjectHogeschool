@@ -1,4 +1,5 @@
 ﻿using Project.Models;
+using Project.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +29,7 @@ namespace Project.Views
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Disabled;
 
+            //DataContext = new RichtingViewModel(DummyDataSource.RichtingOfficeManagement);
             ViewModel.Richting = DummyDataSource.RichtingOfficeManagement;
         }
     }
