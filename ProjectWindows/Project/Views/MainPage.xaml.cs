@@ -10,6 +10,9 @@ using Windows.Services.Maps;
 using Windows.UI;
 using Windows.UI.Xaml.Controls.Maps;
 using Template10.Services.NavigationService;
+using Windows.ApplicationModel.Appointments;
+using Windows.UI.Xaml.Media;
+using Project.Models;
 
 namespace Project.Views
 {
@@ -19,13 +22,32 @@ namespace Project.Views
         {
             InitializeComponent();
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-
+        
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             showPointOnMap();
+        }
+
+        //opendeurdag toevoegen aan kalender als evenement
+        public static Rect GetElementRect(FrameworkElement element)
+        {
+            GeneralTransform buttonTransform = element.TransformToVisual(null);
+            Point point = buttonTransform.TransformPoint(new Point());
+            return new Rect(point, new Size(element.ActualWidth, element.ActualHeight));
+        }
+        private async void AddEvent()
+        {
+            var appointment = new Appointment();
+            appointment.Subject = "Opendeurdag HoGent";
+            appointment.Details = "Opendeurdag HoGent Campus Aalst";
+            appointment.Location = "HoGent Campus Aalst, Arbeidstraat 14";
+            appointment.StartTime = new DateTime(2017, 4, 22, 10,00,00);
+            appointment.Duration = TimeSpan.FromHours(7);
+            var rect = MainPage.GetElementRect(this as FrameworkElement);
+            String appointmentId = await AppointmentManager.ShowAddAppointmentAsync(appointment, rect, Windows.UI.Popups.Placement.Default);
         }
 
         public async void showPointOnMap()
@@ -120,5 +142,9 @@ namespace Project.Views
 
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            AddEvent();
+        }
     }
 }
