@@ -17,6 +17,6 @@ namespace Project.Models
         public string Voorkennis { get; set; }
         public string PraktijkVoorop { get; set; }
         public string StudieFiche { get; set; }
-
+        public string Titel2 { get; set; }
     }
 }

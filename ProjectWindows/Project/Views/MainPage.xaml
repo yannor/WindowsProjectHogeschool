@@ -56,7 +56,8 @@ Als student ben je er nooit anoniem en vind je er onmiddellijk je weg. HoGent ca
 Campus Aalst is bovendien zeer actief en heeft zoals de andere campussen van faculteit Bedrijf en Organisatie een sterk netwerk van nationale en internationale bedrijven. Theorie en praktijk gaan op de HoGent altijd hand in hand. Uniek is de inbreng van de lokale ondernemers. Zij bieden interessante stageplaatsen en werken mee aan heel wat initiatieven. Voor een gemotiveerde student de ideale opstap naar een boeiende job in de regio."                       
                            TextWrapping="Wrap" RelativePanel.Below="campus"/>
                     <TextBlock x:Name="Nieuws" Padding="0,5,0,5" Text="Nieuws" FontSize="18" RelativePanel.Below="uitlegCampus"/>
-                    <TextBlock x:Name="nieuwsItem"  Padding="0,5,0,5" Text="datatemplate voor nieuwsitems?" RelativePanel.Below="Nieuws"/>
+                    <TextBlock x:Name="nieuwsItem"  Padding="0,5,0,5" RelativePanel.Below="Nieuws">
+                    </TextBlock>
                     <Button Content="Bereken route" Click="Button_Click"/>
                     <maps:MapControl x:Name="MyMap"  ZoomLevel="16" Height="350"/>
                 </StackPanel>

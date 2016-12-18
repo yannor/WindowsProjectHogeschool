@@ -61,6 +61,7 @@
                       RelativePanel.Below="pageHeader"
                       VerticalScrollBarVisibility="Auto">
             <StackPanel>
+
                 <Grid>
                     <Grid.Background>
                         <SolidColorBrush Color="#FF0081C5">
@@ -71,12 +72,39 @@
                 </Grid>
 
 
-                <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
-                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
+                <TextBlock Margin="10,5,10,5" Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
+                <TextBlock Margin="10,5,10,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
 
-                <TextBlock FontWeight="Bold">Geen theorie zonder praktijk</TextBlock>
-                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description2, Mode=OneWay}" />
+                <TextBlock Margin="10,10,10,5" FontWeight="Bold" FontSize="20" Text="{x:Bind ViewModel.Richting.Titel2}"></TextBlock>
+                <TextBlock Margin="10,5,10,5" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description2, Mode=OneWay}" />
+
+
+
+                <Pivot x:Name="rootPivot">
+                    <PivotItem Header="Voorkennis">
+                        <!--Pivot content goes here-->
+                        <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
+                            <TextBlock Text="Voorkennis"/>
+                        </StackPanel>
+                        
+                    </PivotItem>
+                    <PivotItem Header="Praktijk voorop">
+                        <!--Pivot content goes here-->
+                        <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
+                        <TextBlock Text="{x:Bind ViewModel.Richting.PraktijkVoorop}" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                        </StackPanel>
+                    </PivotItem>
+                    <PivotItem Header="Activiteiten">
+                        <!--Pivot content goes here-->
+                        <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
+                            <TextBlock Text="Activiteiten"/>
+                        </StackPanel>
+                    </PivotItem>
+                </Pivot>
             </StackPanel>
+
+
+
         </ScrollViewer>
 
     </RelativePanel>

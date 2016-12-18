@@ -30,7 +30,7 @@ namespace Project.ViewModels
             
             Richting = (suspensionState.ContainsKey(nameof(Richting))) ? (Richting)suspensionState[nameof(Richting)] : (Richting)parameter;
             Views.Busy.SetBusy(true, "Laden");
-            await Task.Delay(3000);
+            await Task.Delay(1000);
             Views.Busy.SetBusy(false);
             await Task.CompletedTask;
         }
