@@ -42,7 +42,7 @@ namespace Project.Views
         {
             var appointment = new Appointment();
             appointment.Subject = "Opendeurdag HoGent";
-            appointment.Details = "Opendeurdag HoGent Campus Aalst";
+            appointment.Details = "Wilt u graag wat meer informatie? Kom gerust eens langs op onze opendeurdag op campus Aalst.";
             appointment.Location = "HoGent Campus Aalst, Arbeidstraat 14";
             appointment.StartTime = new DateTime(2017, 4, 22, 10,00,00);
             appointment.Duration = TimeSpan.FromHours(7);
