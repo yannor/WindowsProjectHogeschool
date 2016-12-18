@@ -76,28 +76,37 @@
                 <TextBlock Margin="10,5,10,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
 
                 <TextBlock Margin="10,10,10,5" FontWeight="Bold" FontSize="20" Text="{x:Bind ViewModel.Richting.Titel2}"></TextBlock>
-                <TextBlock Margin="10,5,10,5" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description2, Mode=OneWay}" />
+                <TextBlock Margin="10,5,10,25" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description2, Mode=OneWay}" />
 
 
 
                 <Pivot x:Name="rootPivot">
                     <PivotItem Header="Voorkennis">
                         <!--Pivot content goes here-->
-                        <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
-                            <TextBlock Text="Voorkennis"/>
-                        </StackPanel>
-                        
+                
+                        <ListBox Margin="20" Name="voorkennisBox">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
+                                        <TextBlock Text="{x:Bind ViewModel.Richting.Voorkennis}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
                     </PivotItem>
                     <PivotItem Header="Praktijk voorop">
                         <!--Pivot content goes here-->
                         <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
-                        <TextBlock Text="{x:Bind ViewModel.Richting.PraktijkVoorop}" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                            <TextBlock Text="{x:Bind ViewModel.Richting.PraktijkVoorop}" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}"/>
+
                         </StackPanel>
                     </PivotItem>
                     <PivotItem Header="Activiteiten">
                         <!--Pivot content goes here-->
                         <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
-                            <TextBlock Text="Activiteiten"/>
+                            <TextBlock Text="{x:Bind ViewModel.Richting.Activiteiten}" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                            <Image Source="../Assets/activiteiten.jpg" Width="500" Height="500" HorizontalAlignment="Left"/>
                         </StackPanel>
                     </PivotItem>
                 </Pivot>

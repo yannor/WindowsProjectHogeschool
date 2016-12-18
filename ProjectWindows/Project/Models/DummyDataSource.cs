@@ -13,22 +13,44 @@ namespace Project.Models
         {
             Title = "Toegepaste Informatica",
             Description = "De IT’er van vandaag is veel meer dan alleen maar een technische expert. Hij of zij moet tegelijkertijd een ondernemende, communicatieve en klantgerichte teamspeler zijn. IT is namelijk geëvolueerd van een zuiver technisch verhaal naar ’IT as a service and support tool’.",
-            Html= "https://www.youtube.com/embed/YE8g2XkHXbg"
+            Html = "https://www.youtube.com/embed/YE8g2XkHXbg"
         };
 
         public static Richting RichtingOfficeManagement = new Richting()
         {
-            Title = "Office Management",
-            Description = "Je bent een doener en je houdt van uitdagingen. In een team ben jij diegene die organiseert en coördineert. Je weet van aanpakken en bent een punctuele multitasker. Voor jou moeten de zaken vooruitgaan, goed getimed en gepland. Talen zijn volledig je ding en je communiceert graag. Je blik is internationaal, je aanpak no-nonsense.",
-            Html = "",
-            Titel2= "Geen theorie zonder praktijk",
-            PraktijkVoorop= "In het derde jaar bachelor trekken de studenten bedrijfsvertaler-tolk trekken een week naar de Oostkantons voor een intensieve training in vertaal- en tolkopdrachten. De studenten wonen voordrachten en sessies bij in het Frans, Engels, Duits en Spaans waarbij thema’s aan bod komen met economische, politieke, toeristische, en geschiedkundige achtergrond. De opdrachten bestaan o.a. uit consecutief tolken en het mondeling en schriftelijk synthetiseren van de voordrachten en de bezoeken in de verschillende vreemde talen. Op het einde van de week geeft iedere groep een mondelinge meertalige presentatie voor medestudenten en begeleiders met daarin de resultaten van de afgelopen seminarieweek."
+            Title = 
+                "Office Management",
+
+            Description = 
+                "Je bent een doener en je houdt van uitdagingen. In een team ben jij diegene die organiseert en coördineert. Je weet van aanpakken en bent een punctuele multitasker. Voor jou moeten de zaken vooruitgaan, goed getimed en gepland. Talen zijn volledig je ding en je communiceert graag. Je blik is internationaal, je aanpak no-nonsense.",
+
+            Activiteiten = 
+                "In het derde jaar bachelor trekken de studenten bedrijfsvertaler-tolk trekken een week naar de Oostkantons voor een intensieve training in vertaal- en tolkopdrachten. De studenten wonen voordrachten en sessies bij in het Frans, Engels, Duits en Spaans waarbij thema’s aan bod komen met economische, politieke, toeristische, en geschiedkundige achtergrond. De opdrachten bestaan o.a. uit consecutief tolken en het mondeling en schriftelijk synthetiseren van de voordrachten en de bezoeken in de verschillende vreemde talen. Op het einde van de week geeft iedere groep een mondelinge meertalige presentatie voor medestudenten en begeleiders met daarin de resultaten van de afgelopen seminarieweek."
                 + "Daarnaast organiseert de faculteit elk jaar een internationale week met befaamde buitenlandse gastsprekers die lezingen en workshops geven: van software quality tot international negotiating,"
                 + "van happiness in a cultural context tot een initiatie flamencodansen,"
                 + "van El Cine espanol contemporaneo tot Une approche comparative de la presse française,.....Deze week biedt de studenten de kans hun diploma een internationaal tintje te geven.",
-            Description2 = "De opleiding staat permanent in interactie met de beroepspraktijk. Vanaf het eerste jaar duik je al in de realiteit van het werkveld; onder meer via allerlei boeiende doestages, opdrachten, gastsprekers en projecten."
-            + "Natuurlijk kan je daarbij rekenen op professionele ondersteuning: onze lectoren zijn allemaal vakspecialisten die je met plezier coachen en hun expertise graag met jou delen."
-            + "HoGent - studenten worden opgeleid tot wereldburgers; vandaar dat je tijdens je studie een pak internationale en interculturele competenties zal verwerven.Buitenlandse gastsprekers, een internationale week, studeren of stage lopen in het buitenland als je wil, uitwisselingen, uitstappen en vele andere toffe activiteiten zullen je blik op de wereld enorm verruimen."
+
+            Titel2 = 
+                "Geen theorie zonder praktijk",
+
+            PraktijkVoorop = 
+                "In het derde jaar bachelor trekken de studenten bedrijfsvertaler-tolk trekken een week naar de Oostkantons voor een intensieve training in vertaal- en tolkopdrachten. De studenten wonen voordrachten en sessies bij in het Frans, Engels, Duits en Spaans waarbij thema’s aan bod komen met economische, politieke, toeristische, en geschiedkundige achtergrond. De opdrachten bestaan o.a. uit consecutief tolken en het mondeling en schriftelijk synthetiseren van de voordrachten en de bezoeken in de verschillende vreemde talen. Op het einde van de week geeft iedere groep een mondelinge meertalige presentatie voor medestudenten en begeleiders met daarin de resultaten van de afgelopen seminarieweek."
+                + "Daarnaast organiseert de faculteit elk jaar een internationale week met befaamde buitenlandse gastsprekers die lezingen en workshops geven: van software quality tot international negotiating,"
+                + "van happiness in a cultural context tot een initiatie flamencodansen,"
+                + "van El Cine espanol contemporaneo tot Une approche comparative de la presse française,.....Deze week biedt de studenten de kans hun diploma een internationaal tintje te geven.",
+
+            Voorkennis =
+                { "Taal", "De minimaal vereiste begincompetenties", "Het talenonderwijs in de eerste bachelor office Management bouwt verder op de basis van het secundair. Een degelijke basis van het Frans en het Engels is aan te raden om de studie vlot te doorlopen. Hieronder vind je een lijst van de taalkundige vaardigheden die je moet beheersen wil je vlot kunnen starten met de opleiding."
+                , "1. Basisgrammatica", "2. Basiswoordenschat die nodig is om zich in een dagdagelijkse communicatieve situatie tegenover een native speaker zowel schriftelijk als mondeling vlot en correct uit te kunnen drukken."
+                ,"3. Elementair inzicht in zinsstructuren en woordsoorten.", "Economie en globalisering", "Begincompetenties", "1. Procentberekening (prijzen inclusief BTW kunnen omrekenen naar prijzen exclusief BTW en andersom (regel van drie))"
+                , "2. Vergelijkingen oplossen (eerste graad)", "3. Grafisch een functie weergeven en interpreteren (eerste graad) "},
+
+            Html = "Benieuwd naar het niveau van jouw voorkennis? Doe de tien - minuten - test en check hoe ver jij al staat.",
+
+            Description2 = 
+                "De opleiding staat permanent in interactie met de beroepspraktijk. Vanaf het eerste jaar duik je al in de realiteit van het werkveld; onder meer via allerlei boeiende doestages, opdrachten, gastsprekers en projecten."
+                + "Natuurlijk kan je daarbij rekenen op professionele ondersteuning: onze lectoren zijn allemaal vakspecialisten die je met plezier coachen en hun expertise graag met jou delen."
+                + "HoGent - studenten worden opgeleid tot wereldburgers; vandaar dat je tijdens je studie een pak internationale en interculturele competenties zal verwerven.Buitenlandse gastsprekers, een internationale week, studeren of stage lopen in het buitenland als je wil, uitwisselingen, uitstappen en vele andere toffe activiteiten zullen je blik op de wereld enorm verruimen."
         };
 
         public static Campus Aalst = new Campus()
@@ -44,7 +66,7 @@ namespace Project.Models
         {
             Title = "Bedrijfsmanagement",
             Description = "De opleiding bedrijfsmanagement wil je actief begeleiden in je persoonlijke ontwikkeling en in de ontwikkeling van je competenties en talenten. Je krijgt een coach die met jou 1-to-1 je volledige studietraject begeleidt en je met raad en daad bijstaat. In het eerste jaar ligt de focus vooral op jezelf leren kennen als student en op je studieproces."
-            +"In het tweede en het derde jaar ligt de focus op je persoonlijke ontwikkeling en op je beroepskeuze.Je coach bespreekt ook samen met jou de ideale stageplaats als voorbereiding op de job die je graag wil.Je leert ook meteen om een goed CV op te stellen dat vertrekt van je eigen sterktes.Heel belangrijk is dat jij altijd de centrale figuur bent in de coachingsessies.Jij bent altijd diegene die voor jezelf onderzoekt wat je kan en wat je wil.En je onderneemt ook eigen acties om jezelf bij te sturen naar een optimale slaagkans.",
+            + "In het tweede en het derde jaar ligt de focus op je persoonlijke ontwikkeling en op je beroepskeuze.Je coach bespreekt ook samen met jou de ideale stageplaats als voorbereiding op de job die je graag wil.Je leert ook meteen om een goed CV op te stellen dat vertrekt van je eigen sterktes.Heel belangrijk is dat jij altijd de centrale figuur bent in de coachingsessies.Jij bent altijd diegene die voor jezelf onderzoekt wat je kan en wat je wil.En je onderneemt ook eigen acties om jezelf bij te sturen naar een optimale slaagkans.",
             Html = ""
         };
     }
