@@ -138,7 +138,7 @@
                     <TextBox  Header="Omschrijving: " TextWrapping="Wrap" FontSize="15" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Height="450" />
                     <Button x:Name="btnSave"   Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
 
-
+                </StackPanel>
 
             </StackPanel>
 
