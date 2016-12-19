@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
 using Project.Models;
+using System.Collections.ObjectModel;
 
 namespace Project.ViewModels
 {

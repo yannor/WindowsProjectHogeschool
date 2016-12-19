@@ -64,6 +64,11 @@
                     <TextBlock x:Name="Infomomenten" Padding="0,5,0,5" Text="Infomomenten en Opendeurdagen" FontSize="18" FontWeight="Bold"/>
                     
                     <ListView x:Name="InfomomentenItems" ItemsSource="{Binding Campus.Evenementen}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" BorderBrush="Black" BorderThickness="1">
@@ -73,13 +78,13 @@
                                     <TextBlock Text="{Binding Datum}" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource BaseTextBlockStyle}"/>
                                     <TextBlock Text="{Binding Uur}" Margin="10,0,10,5" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource BodyTextBlockStyle}"/>
                                     <TextBlock Text="{Binding Uitleg}" Margin="10,5,10,5" Style="{StaticResource BodyTextBlockStyle}"/>
-                                    <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5" HorizontalAlignment="Center"/>
+                                    <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5" HorizontalAlignment="Center"  Click="AddToCalender"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                    
-                    <Button Content="Opendeurdag toevoegen aan kalender" Click="Button_Click_1"/>
+                    
                     <TextBlock x:Name="Route" Padding="0,5,0,5" Text="Locatie" FontSize="18" FontWeight="Bold"/>
                     <Button Content="Routebeschrijving" Click="Button_Click" Margin="0,5,0,0"/>
                     <maps:MapControl x:Name="MyMap"  ZoomLevel="16" Height="350"/>
