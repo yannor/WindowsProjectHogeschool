@@ -107,6 +107,9 @@
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
     <Compile Include="ViewModels\RichtingViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
+    <Compile Include="Views\AccountancyFiscaliteit.xaml.cs">
+      <DependentUpon>AccountancyFiscaliteit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BedrijfsPage.xaml.cs">
       <DependentUpon>BedrijfsPage.xaml</DependentUpon>
     </Compile>
@@ -116,8 +119,17 @@
     <Compile Include="Views\DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FinancienVerzekeringen.xaml.cs">
+      <DependentUpon>FinancienVerzekeringen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Kmo.xaml.cs">
+      <DependentUpon>Kmo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Marketing.xaml.cs">
+      <DependentUpon>Marketing.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OfficePage.xaml.cs">
       <DependentUpon>OfficePage.xaml</DependentUpon>
@@ -173,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
+    <Page Include="Views\AccountancyFiscaliteit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BedrijfsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,9 +201,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FinancienVerzekeringen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Kmo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Marketing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OfficePage.xaml">
       <SubType>Designer</SubType>

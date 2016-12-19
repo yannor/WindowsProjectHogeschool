@@ -40,13 +40,13 @@ namespace Project.Models
                 + "van El Cine espanol contemporaneo tot Une approche comparative de la presse française,.....Deze week biedt de studenten de kans hun diploma een internationaal tintje te geven.",
 
 
-            Voorkennis = 
+            Voorkennis =
                 "Voorkennis",
 
 
             Html = "Benieuwd naar het niveau van jouw voorkennis? Doe de tien - minuten - test en check hoe ver jij al staat.",
 
-            Description2 = 
+            Description2 =
                 "De opleiding staat permanent in interactie met de beroepspraktijk. Vanaf het eerste jaar duik je al in de realiteit van het werkveld; onder meer via allerlei boeiende doestages, opdrachten, gastsprekers en projecten."
                 + "Natuurlijk kan je daarbij rekenen op professionele ondersteuning: onze lectoren zijn allemaal vakspecialisten die je met plezier coachen en hun expertise graag met jou delen."
                 + "HoGent - studenten worden opgeleid tot wereldburgers; vandaar dat je tijdens je studie een pak internationale en interculturele competenties zal verwerven.Buitenlandse gastsprekers, een internationale week, studeren of stage lopen in het buitenland als je wil, uitwisselingen, uitstappen en vele andere toffe activiteiten zullen je blik op de wereld enorm verruimen."
@@ -67,6 +67,31 @@ namespace Project.Models
             Description = "De opleiding bedrijfsmanagement wil je actief begeleiden in je persoonlijke ontwikkeling en in de ontwikkeling van je competenties en talenten. Je krijgt een coach die met jou 1-to-1 je volledige studietraject begeleidt en je met raad en daad bijstaat. In het eerste jaar ligt de focus vooral op jezelf leren kennen als student en op je studieproces."
             + "In het tweede en het derde jaar ligt de focus op je persoonlijke ontwikkeling en op je beroepskeuze.Je coach bespreekt ook samen met jou de ideale stageplaats als voorbereiding op de job die je graag wil.Je leert ook meteen om een goed CV op te stellen dat vertrekt van je eigen sterktes.Heel belangrijk is dat jij altijd de centrale figuur bent in de coachingsessies.Jij bent altijd diegene die voor jezelf onderzoekt wat je kan en wat je wil.En je onderneemt ook eigen acties om jezelf bij te sturen naar een optimale slaagkans.",
             Html = ""
+        };
+
+
+        public static Richting AccountancyFiscaliteit = new Richting()
+        {
+            Title =
+                "Accountancy-Fiscaliteit"
+        };
+
+        public static Richting FinanceEnVerzeker = new Richting()
+        {
+            Title =
+               "Financien en verzekeringen"
+        };
+
+        public static Richting kmo = new Richting()
+        {
+            Title =
+               "KMO management"
+        };
+
+        public static Richting Marketing = new Richting()
+        {
+            Title =
+               "Marketing"
         };
     }
 }

@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Project.Views.BedrijfsPage"
+    x:Class="Project.Views.Kmo"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Project.Views"
@@ -61,43 +61,25 @@
                       RelativePanel.Below="pageHeader"
                       VerticalScrollBarVisibility="Auto">
             <StackPanel>
+
                 <Grid>
                     <Grid.Background>
-                        <SolidColorBrush Color="#FF0081C5">
+                        <SolidColorBrush Color="#FF0083C9">
                         </SolidColorBrush>
                     </Grid.Background>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Image x:Name="imgBedrijf" Source="../Assets/bedrijfsmanagement.jpg" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True" Grid.Row="0" Grid.ColumnSpan="4"/>
-                    <Button Grid.Row="1" Grid.Column="0" Click="gaNaarAccountancy" >
-                        <Image x:Name="imgAccount" Stretch="Fill" Source="../Assets/accountancyFiscaliteit_banner.jpg" MaxHeight="100" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    </Button>
-                    <Button Grid.Row="1" Grid.Column="1" Click="gaNaarFinance" >
-                        <Image x:Name="imgFinance" Stretch="Fill"  Source="../Assets/financieEnVerzekering_banner.jpg" MaxHeight="100" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    </Button>
-                    <Button Grid.Row="1" Grid.Column="2" Click="gaNaarKmo" >
-                        <Image x:Name="imgKmo"  Stretch="Fill" Source="../Assets/kmoManagement_banner.jpg" MaxHeight="100" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    </Button>
-                    <Button Grid.Row="1" Grid.Column="3" Click="gaNaarMarketing" >
-                        <Image x:Name="imgMarketing"  Stretch="Fill"  Source="../Assets/marketing_banner.jpg" MaxHeight="100" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-                    </Button>
+                    <Image x:Name="Titel"  Source="../Assets/kmoManagement_banner.jpg" MaxHeight="200" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
 
                 </Grid>
 
                 <TextBlock Margin="10,5,10,5" Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
-                <TextBlock Margin="10,5,10,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
+
+
+
+
             </StackPanel>
+
+
+
         </ScrollViewer>
 
     </RelativePanel>
