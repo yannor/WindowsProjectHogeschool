@@ -138,6 +138,9 @@
     <Compile Include="Views\Marketing.xaml.cs">
       <DependentUpon>Marketing.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\NieuwEventDialog.xaml.cs">
+      <DependentUpon>NieuwEventDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OfficePage.xaml.cs">
       <DependentUpon>OfficePage.xaml</DependentUpon>
     </Compile>
@@ -226,6 +229,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Marketing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NieuwEventDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

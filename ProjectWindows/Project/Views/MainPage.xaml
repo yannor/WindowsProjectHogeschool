@@ -11,6 +11,7 @@
       xmlns:vm="using:Project.ViewModels"
       mc:Ignorable="d"
       xmlns:control="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      xmlns:triggers="using:WindowsStateTriggers"
       xmlns:maps="using:Windows.UI.Xaml.Controls.Maps">
 
 
@@ -19,6 +20,54 @@
     </Page.DataContext>
 
     <ScrollViewer>
+
+        <VisualStateManager.VisualStateGroups>
+
+            <!-- LOGGED IN GROUP -->
+            <VisualStateGroup x:Name="LogInGroup">
+                <VisualState x:Name="LoggedIn">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="btnSave.Visibility" Value="Visible" />
+                        <Setter Target="btnEdit.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="LoggedOut">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="btnSave.Visibility" Value="Collapsed" />
+                        <Setter Target="btnEdit.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <!-- EDIT MODE GROUP -->
+            <VisualStateGroup x:Name="InEditMode">
+                <VisualState x:Name="InEditModeTrue">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsInEditMode}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedOut.Visibility" Value="Collapsed" />
+                        <Setter Target="SPLoggedIn.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="InEditModeFalse">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsInEditMode}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedOut.Visibility" Value="Visible" />
+                        <Setter Target="SPLoggedIn.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
             <controls:PageHeader x:Name="pageHeader"
@@ -48,36 +97,83 @@
                         </Grid.Background>
                         <Image Source="../Assets/HoGentAalst.jpg" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                     </Grid>
-                    <TextBlock x:Name="campus" Padding="5,5,5,5" Text="Studeren op Campus Aalst" FontSize="18" FontWeight="Bold" RelativePanel.Below="Titel"/>
-                    <TextBlock x:Name="uitlegCampus" Margin="5,0,5,50" Padding="0,5,0,5" Text="{x:Bind ViewModel.Campus.Uitleg}" TextWrapping="Wrap" RelativePanel.Below="campus"/>
 
-                    <TextBlock x:Name="Infomomenten" Padding="5" Text="Infomomenten en Opendeurdagen" FontSize="18" FontWeight="Bold"/>
                     
-                    <ListView x:Name="InfomomentenItems" ItemsSource="{Binding Campus.Evenementen}" Margin="5,5,5,50">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Vertical" BorderBrush="Black" BorderThickness="1">
-                                    <Border Background="#FF0081C5">
-                                        <TextBlock Text="{Binding Naam}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" Padding="10,5,10,5" TextAlignment="Center" Foreground="WhiteSmoke"/>
-                                    </Border>
-                                    <TextBlock Text="{Binding Datum}" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource BaseTextBlockStyle}"/>
-                                    <TextBlock Text="{Binding Uur}" Margin="10,0,10,5" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource BodyTextBlockStyle}"/>
-                                    <TextBlock Text="{Binding Uitleg}" Margin="10,5,10,5" Style="{StaticResource BodyTextBlockStyle}"/>
-                                    <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5"  HorizontalAlignment="Center"  Click="AddToCalender"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                   
+                    <!-- Logged in -->
+                    <StackPanel x:Name="SPLoggedOut" Visibility="Visible" Orientation="Vertical" Padding="8" Margin="16">
+                        
+                        <TextBlock x:Name="campus" Padding="5,5,5,5" Text="Studeren op Campus Aalst" FontSize="18" FontWeight="Bold" RelativePanel.Below="Titel"/>
+                        <TextBlock x:Name="uitlegCampus" Margin="5,0,5,50" Padding="0,5,0,5" Text="{x:Bind ViewModel.Campus.Uitleg, Mode=TwoWay}" TextWrapping="Wrap" RelativePanel.Below="campus"/>
+
+                        <TextBlock x:Name="Infomomenten" Padding="5" Text="Infomomenten en Opendeurdagen" FontSize="18" FontWeight="Bold"/>
+
+                        <ListView x:Name="InfomomentenItems" ItemsSource="{Binding Campus.Evenementen}" Margin="5,5,5,50">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" BorderBrush="Black" BorderThickness="1">
+                                        <Border Background="#FF0081C5">
+                                            <TextBlock Text="{Binding Naam, Mode=TwoWay}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" Padding="10,5,10,5" TextAlignment="Center" Foreground="WhiteSmoke"/>
+                                        </Border>
+                                        <TextBlock Text="{Binding Datum, Mode=TwoWay}" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource BaseTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding Uur, Mode=TwoWay}" Margin="10,0,10,5" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource BodyTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding Uitleg, Mode=TwoWay}" Margin="10,5,10,5" Style="{StaticResource BodyTextBlockStyle}"/>
+                                        <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5"  HorizontalAlignment="Center"  Click="AddToCalender"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
+                        <TextBlock x:Name="Route" Padding="0,5,0,5" Text="Locatie" FontSize="18" FontWeight="Bold"/>
+                        <Button Content="Routebeschrijving" Click="Button_Click" Margin="5,5,0,5" Background="#FF0081C5" />
+                        <maps:MapControl x:Name="MyMap"  ZoomLevel="16" Height="500"/>
+
+
+                        <Button x:Name="btnEdit"   Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
+
+                    </StackPanel>
+
                     
-                    <TextBlock x:Name="Route" Padding="0,5,0,5" Text="Locatie" FontSize="18" FontWeight="Bold"/>
-                    <Button Content="Routebeschrijving" Click="Button_Click" Margin="5,5,0,5" Background="#FF0081C5" />
-                    <maps:MapControl x:Name="MyMap"  ZoomLevel="16" Height="500"/>
+                    <!-- Logged out -->
+                    <StackPanel x:Name="SPLoggedIn" Visibility="Collapsed" Orientation="Vertical" Padding="8" Margin="16">
+
+                        <TextBlock  Padding="5,5,5,5" Text="Studeren op Campus Aalst" FontSize="18" FontWeight="Bold" RelativePanel.Below="Titel"/>
+                        <TextBox TextWrapping="Wrap" Header="Beschrijving"  Margin="5,0,5,50" Padding="0,5,0,5" Text="{x:Bind ViewModel.Campus.Uitleg, Mode=TwoWay}" RelativePanel.Below="campus"/>
+                        <TextBlock  Padding="5" Text="Infomomenten en Opendeurdagen" FontSize="18" FontWeight="Bold"/>
+
+                        <ListView ItemsSource="{Binding Campus.Evenementen}" Margin="5,5,5,50">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" BorderBrush="Black" BorderThickness="1">
+                                        <Border Background="#FF0081C5">
+                                            <TextBlock Text="{Binding Naam, Mode=TwoWay}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" Padding="10,5,10,5" TextAlignment="Center" Foreground="WhiteSmoke"/>
+                                        </Border>
+                                        <Button Content="X" FontSize="14" FontWeight="Bold" Background="Red" Click="DeleteItem" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                                        <TextBlock Text="{Binding Datum, Mode=TwoWay}" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource BaseTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding Uur, Mode=TwoWay}" Margin="10,0,10,5" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource BodyTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding Uitleg, Mode=TwoWay}" Margin="10,5,10,5" Style="{StaticResource BodyTextBlockStyle}"/>
+                                        <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5"  HorizontalAlignment="Center"  Click="AddToCalender"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <Button x:Name="btnAddEvenement" Content="Voeg evenement toe" Click="btnAddEvenement_Click"/>
+
+                        <Button x:Name="btnSave"   Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
+                    </StackPanel>
+
+                    
                 </StackPanel>
             </ScrollViewer>
         </RelativePanel>

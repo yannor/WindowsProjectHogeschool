@@ -1,0 +1,22 @@
+﻿<ContentDialog
+    x:Class="Project.Views.NieuwEventDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Project.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Evenement toevoegen"
+    PrimaryButtonText="Toevoegen"
+    SecondaryButtonText="Annuleren"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <StackPanel Orientation="Vertical" Padding="8" Margin="16">
+        <TextBox x:Name="txtNaam" Header="Naam: " x:FieldModifier="public"/>
+        <TextBox x:Name="txtUitleg" Header="Uitleg: " x:FieldModifier="public"/>
+        <TextBox x:Name="txtUur" Header="Uur: " x:FieldModifier="public" />
+
+        <DatePicker Header="Datum: " x:Name="date" x:FieldModifier="public"/>
+    </StackPanel>
+</ContentDialog>
