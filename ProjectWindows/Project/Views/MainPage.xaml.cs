@@ -23,6 +23,7 @@ namespace Project.Views
             InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
             ViewModel.Campus = DummyDataSource.Aalst;
+            //NieuwsItems.ItemsSource
 
         }
 

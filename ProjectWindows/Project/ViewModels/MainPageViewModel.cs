@@ -11,7 +11,7 @@ namespace Project.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        public Evenement Campus { get; internal set; }
+        public Campus Campus { get; internal set; }
 
         public MainPageViewModel()
         {

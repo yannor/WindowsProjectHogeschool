@@ -94,9 +94,10 @@ namespace Project.Models
             + "gerichte aanpak met veel aandacht voor het individu.Typerend zijn de kleine klasgroepen en het familiale karakter.Docenten gaan voor een persoonlijke aanpak en coachen heel gericht je competenties en talenten."
             + "Campus Aalst is bovendien zeer actief en heeft zoals de andere campussen van faculteit Bedrijf en Organisatie een sterk netwerk van nationale en internationale bedrijven.Theorie en praktijk gaan op de HoGent altijd hand in hand.Uniek is de inbreng van de lokale ondernemers.Zij bieden interessante stageplaatsen en werken mee aan heel wat initiatieven.Voor een gemotiveerde student de ideale opstap naar een boeiende job in de regio.",
 
-            Evenementen =
+            Evenementen = new List<Evenement>()
             {
-                new Evenement {Naam = "opendeurdag", Uitleg = "Kom gerust eens langs en kijk eens rond op de campus"}
+                new Evenement {Naam = "opendeurdag", Uitleg = "Kom gerust eens langs en kijk eens rond op de campus" },
+                new Evenement {Naam = "Projectvoorstelling", Uitleg = "Gaan we in de prijzen vallen? ;)" }
             }
         };
 

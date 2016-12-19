@@ -49,12 +49,7 @@
                         <Image Source="../Assets/HoGentAalst.jpg" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
                     </Grid>
                     <TextBlock x:Name="campus" Padding="0,5,0,5" Text="Studeren op Campus Aalst" FontSize="18" FontWeight="Bold" RelativePanel.Below="Titel"/>
-                    <TextBlock x:Name="uitlegCampus" Margin="0,0,10,0" Padding="0,5,0,5" Text="Studeren aan HoGent campus Aalst betekent studeren in een gezellige provinciestad. Voor veel studenten is de HoGent in Aalst de campus vlakbij huis. De campus ligt dicht bij het centrum en de winkelstraat en is op wandelafstand van het station en de parking Keizershallen.
-
-Als student ben je er nooit anoniem en vind je er onmiddellijk je weg. HoGent campus Aalst staat voor een kleinschalige, gerichte aanpak met veel aandacht voor het individu. Typerend zijn de kleine klasgroepen en het familiale karakter. Docenten gaan voor een persoonlijke aanpak en coachen heel gericht je competenties en talenten.
-
-Campus Aalst is bovendien zeer actief en heeft zoals de andere campussen van faculteit Bedrijf en Organisatie een sterk netwerk van nationale en internationale bedrijven. Theorie en praktijk gaan op de HoGent altijd hand in hand. Uniek is de inbreng van de lokale ondernemers. Zij bieden interessante stageplaatsen en werken mee aan heel wat initiatieven. Voor een gemotiveerde student de ideale opstap naar een boeiende job in de regio."                       
-                           TextWrapping="Wrap" RelativePanel.Below="campus"/>
+                    <TextBlock x:Name="uitlegCampus" Margin="0,0,10,0" Padding="0,5,0,5" Text="{x:Bind ViewModel.Campus.Uitleg}" TextWrapping="Wrap" RelativePanel.Below="campus"/>
                     <TextBlock x:Name="Nieuws" Padding="0,5,0,5" Text="Nieuws" FontSize="18" FontWeight="Bold" RelativePanel.Below="uitlegCampus"/>
                     <ListView x:Name="NieuwsItems">
                         <ListView.ItemTemplate>
@@ -67,10 +62,16 @@ Campus Aalst is bovendien zeer actief en heeft zoals de andere campussen van fac
                         </ListView.ItemTemplate>
                     </ListView>
                     <TextBlock x:Name="Infomomenten" Padding="0,5,0,5" Text="Infomomenten en Opendeurdagen" FontSize="18" FontWeight="Bold"/>
-                    <TextBlock Text="Infomoment 8 maart 2017"/>
-                    <TextBlock Text="Opendeurdag HoGent 22 april 2017"/>
-                    <TextBlock Text="Infomoment 28 juni 2017"/>
-                    <TextBlock Text="Infomoment 2 september 2017"/>
+                    <ListView x:Name="InfomomentenItems" ItemsSource="{Binding Campus.Evenementen}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Naam}"/>
+                                    <TextBlock Text="{Binding Uitleg}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                     <Button Content="Opendeurdag toevoegen aan kalender" Click="Button_Click_1"/>
                     <TextBlock x:Name="Route" Padding="0,5,0,5" Text="Locatie" FontSize="18" FontWeight="Bold"/>
                     <Button Content="Routebeschrijving" Click="Button_Click" Margin="0,5,0,0"/>
