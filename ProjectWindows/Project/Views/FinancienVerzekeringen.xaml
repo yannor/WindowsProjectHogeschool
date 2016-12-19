@@ -23,6 +23,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <!--  TODO: change properties for narrow view  -->
+                        <Setter Target="stackText.Orientation" Value="Vertical" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
@@ -31,6 +32,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <!--  TODO: change properties for normal view  -->
+                        <Setter Target="stackText.Orientation" Value="Vertical" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateWide">
@@ -74,10 +76,9 @@
 
                 <TextBlock Margin="10,5,10,5" Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
 
-                <StackPanel Orientation="Horizontal">
-
-                    <TextBlock  Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Margin="5,10,5,10" MaxWidth="800" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" TextWrapping="Wrap"/>
-                    <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=TwoWay}" Width="800" Height="500" />
+                <StackPanel x:Name="stackText" Orientation="Horizontal">
+                    <TextBlock  Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Margin="5,10,5,10" MaxWidth="500" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" TextWrapping="Wrap"/>
+                    <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=TwoWay}" Width="500" Height="500" Margin="5" />
 
                 </StackPanel>
 
