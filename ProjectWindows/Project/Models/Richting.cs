@@ -13,9 +13,6 @@ namespace Project.Models
         public string Description { get; set; }
         public string Description2 { get; set; }
 
-        public List<string> Opsomming1 { get; set; }
-        public List<string> Opsomming2 { get; set; }
-
         public string Html { get; set; }
         public string Activiteiten { get; set; }
         public string PraktijkVoorop { get; set; }

@@ -101,10 +101,14 @@
     <Compile Include="Models\DummyDataSource.cs" />
     <Compile Include="Models\Evenement.cs" />
     <Compile Include="Models\Richting.cs" />
+    <Compile Include="Models\Gebruiker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ProjectServices\ProjectService.cs" />
     <Compile Include="Services\SettingsServices\SettingsService.cs" />
+    <Compile Include="ViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
+    <Compile Include="ViewModels\ProjectViewModelBase.cs" />
     <Compile Include="ViewModels\RichtingViewModel.cs" />
     <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="Views\AccountancyFiscaliteit.xaml.cs">
@@ -125,11 +129,17 @@
     <Compile Include="Views\Kmo.xaml.cs">
       <DependentUpon>Kmo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Marketing.xaml.cs">
       <DependentUpon>Marketing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NieuwEventDialog.xaml.cs">
+      <DependentUpon>NieuwEventDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OfficePage.xaml.cs">
       <DependentUpon>OfficePage.xaml</DependentUpon>
@@ -210,6 +220,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -217,6 +231,9 @@
     <Page Include="Views\Marketing.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NieuwEventDialog.xaml">
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\OfficePage.xaml">
       <SubType>Designer</SubType>

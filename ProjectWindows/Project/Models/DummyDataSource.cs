@@ -67,6 +67,7 @@ namespace Project.Models
             Title =
                 "Accountancy-Fiscaliteit",
 
+
             Html =
                 "https://www.youtube.com/embed/X4gLzqlVUMw",
 
@@ -74,12 +75,14 @@ namespace Project.Models
                 "De afstudeerrichting accountancy - fiscaliteit is een brede,"
                 + "maar tegelijkertijd zeer diepgaande praktijkgerichte opleiding.Cijfers staan hier voorop.Je verwerft op een boeiende manier inzicht in al de relevante aspecten van het financieel ondernemen.Daardoor zal je na je studies in staat zijn om heel zelfstandig te kunnen functioneren.Of je nu de financiële steunpilaar wordt van het management in 1 of andere onderneming,"
                 + "dan wel als je kiest om zelfstandig verantwoordelijkheid op te nemen: met je up - to - date inzicht in planning en beleid op financieel vlak heb je gegarandeerd de beste carrièrekansen."
+
         };
 
         public static Richting FinanceEnVerzeker = new Richting()
         {
             Title =
                "Financien en verzekeringen",
+
 
             Html =
                 "https://www.youtube.com/embed/9pbXCOLVrCA", 
@@ -90,6 +93,7 @@ namespace Project.Models
                 + "En dit is een schot in de roos.De grens tussen de verzekeringswereld en de financiële diensten vervaagt immers van dag tot dag.De vraag naar goed geschoolde specialisten in beide branches is dan ook zeer groot : mensen met visie die zowel over verzekeringen als over bankproducten kunnen meepraten.Mensen die oplossingen kunnen aanreiken in beide materies.En slimme praktische beslissingen kunnen nemen."
                 + "Wil je een echt goeie specialist worden in bankproducten en verzekeringen ? Ga dan voor een bachelor financie - en verzekeringswezen aan de HoGent."
                 + "Je hoeft voor deze afstudeerrichting niet over specifieke voorkennis te beschikken.Een uitgesproken reken - of talenknobbel is ook al niet nodig.Wel moet je natuurlijk alert zijn voor wat zich op het economische vlak afspeelt.En je moet geboeid zijn door de bewegingen op de financiële markten en alles willen weten en doorgronden over verzekeringen.De vraag 'wie is aansprakelijk voor dit ongeval, waarom & wat zijn de gevolgen ?' fascineert je.Daar wil je je in vastbijten."
+
         };
 
         public static Richting kmo = new Richting()
@@ -110,12 +114,14 @@ namespace Project.Models
                 + "logistiek,"
                 + "marketing & communicatie.Zo leer je de samenhang zien vanuit een overkoepelend perspectief zonder natuurlijk de soms belangrijke details uit het oog te verliezen."
                 + "Vlaanderen is een echte kmo - regio: ondernemingen met minder dan 50 werknemers vertegenwoordigen 96 % van het totaal aantal ondernemingen.Goed voor 42 % van de tewerkstelling in Vlaanderen.Binnen de organisatiestructuur van een kmo zijn de taken niet altijd strikt verdeeld.Daarom is veelzijdigheid van de werknemers een absolute vereiste.En daar speelt de opleiding ook op in."
+
         };
 
         public static Richting Marketing = new Richting()
         {
             Title =
                "Marketing",
+
 
             Html =
                 "https://www.youtube.com/embed/1XPYNDX7Mzc",
@@ -129,6 +135,7 @@ namespace Project.Models
                 + "interactieve sites en bijvoorbeeld ook Facebook & Twitter."
 
 
+
         };
 
 
@@ -139,12 +146,19 @@ namespace Project.Models
             + "gerichte aanpak met veel aandacht voor het individu.Typerend zijn de kleine klasgroepen en het familiale karakter.Docenten gaan voor een persoonlijke aanpak en coachen heel gericht je competenties en talenten."
             + "Campus Aalst is bovendien zeer actief en heeft zoals de andere campussen van faculteit Bedrijf en Organisatie een sterk netwerk van nationale en internationale bedrijven.Theorie en praktijk gaan op de HoGent altijd hand in hand.Uniek is de inbreng van de lokale ondernemers.Zij bieden interessante stageplaatsen en werken mee aan heel wat initiatieven.Voor een gemotiveerde student de ideale opstap naar een boeiende job in de regio.",
 
-            Evenementen = new List<Evenement>()
+            Evenementen = new System.Collections.ObjectModel.ObservableCollection<Evenement>()
             {
                 new Evenement {Naam = "Opendeurdag", Uitleg = "Kom gerust eens langs en kijk eens rond op de campus", Uur="14u - 16u", Datum = DateTime.Now.AddMinutes(1) },
                 new Evenement {Naam = "Projectvoorstelling", Uitleg = "Gaan we in de prijzen vallen? ;)", Datum = DateTime.Now.AddMonths(-5) }
             }
         };
 
+        public static List<Gebruiker> Admins = new List<Gebruiker>()
+        {
+            new Gebruiker("admin", "admin"),
+            new Gebruiker("matthiee", "wachtwoord"),
+            new Gebruiker("yannor", "wachtwoord"),
+            new Gebruiker("drieswillems", "wachtwoord")
+        };
     }
 }

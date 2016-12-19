@@ -10,6 +10,11 @@
     <Color x:Key="ContrastColor">White</Color>
     <Color x:Key="SystemAccentColor">SteelBlue</Color>
 
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="#FF0081C5"/>
+        <Setter Property="Foreground" Value="WhiteSmoke"/>
+    </Style>
+
     <ResourceDictionary.ThemeDictionaries>
 
         <ResourceDictionary x:Key="Light">
@@ -84,6 +89,8 @@
                 <Setter Property="GrabberBrush" Value="{ThemeResource CustomColorBrush}" />
                 <Setter Property="GrabberVisibility" Value="Visible" />
             </Style>
+
+            
 
         </ResourceDictionary>
 

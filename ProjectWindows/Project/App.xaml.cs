@@ -52,6 +52,11 @@ namespace Project
             // TODO: add your long-running task here
             await NavigationService.NavigateAsync(typeof(Views.MainPage));
         }
+
+        public override Task OnInitializeAsync(IActivatedEventArgs args)
+        {
+            return base.OnInitializeAsync(args);
+        }
     }
 }
 

@@ -151,5 +151,47 @@ namespace Project.Views
             Evenement ev = (Evenement)obj.DataContext;
             AddEvent(ev);
         }
+
+        private void DeleteItem(object sender, RoutedEventArgs e)
+        {
+            Button obj = (Button)sender;
+            Evenement ev = (Evenement)obj.DataContext;
+            DeleteItem(ev);
+        }
+
+        private void DeleteItem(Evenement e)
+        {
+            ViewModel.Campus.Evenementen.Remove(e);
+        }
+
+        private async void btnAddEvenement_Click(object sender, RoutedEventArgs x)
+        {
+            NieuwEventDialog dlgEvenement = new NieuwEventDialog();
+            ContentDialogResult result = await dlgEvenement.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                String naam = dlgEvenement.txtNaam.Text;
+                String besch = dlgEvenement.txtUitleg.Text;
+                String uur = dlgEvenement.txtUur.Text;
+
+                DateTime time = dlgEvenement.date.Date.Date;
+
+                Evenement e = new Evenement()
+                {
+                    Naam = naam,
+                    Uitleg = besch,
+                    Uur = uur,
+                    Datum=time
+                };
+
+                AddEvenement(e);
+            }
+        }
+
+        private void AddEvenement(Evenement e)
+        {
+            ViewModel.Campus.Evenementen.Add(e);
+        }
     }
 }
