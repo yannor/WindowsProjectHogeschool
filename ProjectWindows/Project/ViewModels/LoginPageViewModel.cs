@@ -35,6 +35,8 @@ namespace Project.ViewModels
 
         public bool Login(String username, String password)
         {
+            //List<Gebruiker> admins = Backend.GetGebruikers().Result;
+
             foreach (Gebruiker g in DummyDataSource.Admins)
             {
                 if (g.Gebruikersnaam == username && g.Wachtwoord == g.Wachtwoord)

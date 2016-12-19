@@ -8,6 +8,7 @@ namespace Project.Models
 {
     public class Richting
     {
+        public int RichtingID { get; set; }
         public string Title { get; set; }
         public string Titel2 { get; set; }
         public string Description { get; set; }

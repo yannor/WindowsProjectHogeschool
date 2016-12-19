@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -36,6 +37,7 @@ namespace Project.Views
             String username = txtUsername.Text;
 
             bool x = viewmodel.Login(username, password);
+            
 
             MessageDialog md = new MessageDialog(x ? "Succesvol ingelogd" : "Foutieve gebruikersnaam of wachtwoord", "Login");
             await md.ShowAsync();

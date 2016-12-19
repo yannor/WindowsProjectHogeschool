@@ -8,6 +8,7 @@ namespace Project.Models
 {
     public class Evenement
     {
+        public int EvenementID { get; set; }
         public string Naam { get; set; }
         public string Uitleg { get; set; }
         public DateTime Datum { get; set; }
