@@ -62,16 +62,21 @@
                         </ListView.ItemTemplate>
                     </ListView>
                     <TextBlock x:Name="Infomomenten" Padding="0,5,0,5" Text="Infomomenten en Opendeurdagen" FontSize="18" FontWeight="Bold"/>
+                    
                     <ListView x:Name="InfomomentenItems" ItemsSource="{Binding Campus.Evenementen}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding Naam}"/>
-                                    <TextBlock Text="{Binding Uitleg}"/>
+                                <StackPanel Orientation="Vertical" BorderBrush="Black" BorderThickness="1">
+                                    <Border Background="#FF0081C5">
+                                        <TextBlock Text="{Binding Naam}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" Padding="10,5,10,5" TextAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding Datum}" Margin="10,5,10,5"/>
+                                    <TextBlock Text="{Binding Uitleg}" Margin="10,5,10,5"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                   
                     <Button Content="Opendeurdag toevoegen aan kalender" Click="Button_Click_1"/>
                     <TextBlock x:Name="Route" Padding="0,5,0,5" Text="Locatie" FontSize="18" FontWeight="Bold"/>
                     <Button Content="Routebeschrijving" Click="Button_Click" Margin="0,5,0,0"/>
