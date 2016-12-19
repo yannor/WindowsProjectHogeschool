@@ -71,7 +71,16 @@ namespace Project.Models
         public static Richting FinanceEnVerzeker = new Richting()
         {
             Title =
-               "Financien en verzekeringen"
+               "Financien en verzekeringen",
+
+            Html =
+                "https://www.youtube.com/watch?v=9pbXCOLVrCA", 
+            Description =
+                "De afstudeerrichting financie- en verzekeringswezen is een brede, maar tegelijkertijd zeer gespecialiseerde en zeer praktijkgerichte opleiding."
+                + "Je verwerft namelijk om te beginnen een ruim inzicht in alle essentiële juridische en algemeen bedrijfseconomische materies.Die kennis vormt dan gelijk een ideaal fundament om een grondige know how op te bouwen rond alles wat met bankproducten en verzekeringen te maken heeft."
+                + "En dit is een schot in de roos.De grens tussen de verzekeringswereld en de financiële diensten vervaagt immers van dag tot dag.De vraag naar goed geschoolde specialisten in beide branches is dan ook zeer groot : mensen met visie die zowel over verzekeringen als over bankproducten kunnen meepraten.Mensen die oplossingen kunnen aanreiken in beide materies.En slimme praktische beslissingen kunnen nemen."
+                + "Wil je een echt goeie specialist worden in bankproducten en verzekeringen ? Ga dan voor een bachelor financie - en verzekeringswezen aan de HoGent."
+                + "Je hoeft voor deze afstudeerrichting niet over specifieke voorkennis te beschikken.Een uitgesproken reken - of talenknobbel is ook al niet nodig.Wel moet je natuurlijk alert zijn voor wat zich op het economische vlak afspeelt.En je moet geboeid zijn door de bewegingen op de financiële markten en alles willen weten en doorgronden over verzekeringen.De vraag 'wie is aansprakelijk voor dit ongeval, waarom & wat zijn de gevolgen ?' fascineert je.Daar wil je je in vastbijten."
         };
 
         public static Richting kmo = new Richting()
