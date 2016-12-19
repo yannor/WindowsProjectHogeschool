@@ -101,14 +101,6 @@ namespace Project.Models
             }
         };
 
-        public static Richting RichtingBedrijfsManagement = new Richting()
-        {
-            Title = "Bedrijfsmanagement",
-            Description = "De opleiding bedrijfsmanagement wil je actief begeleiden in je persoonlijke ontwikkeling en in de ontwikkeling van je competenties en talenten. Je krijgt een coach die met jou 1-to-1 je volledige studietraject begeleidt en je met raad en daad bijstaat. In het eerste jaar ligt de focus vooral op jezelf leren kennen als student en op je studieproces."
-            +"In het tweede en het derde jaar ligt de focus op je persoonlijke ontwikkeling en op je beroepskeuze.Je coach bespreekt ook samen met jou de ideale stageplaats als voorbereiding op de job die je graag wil.Je leert ook meteen om een goed CV op te stellen dat vertrekt van je eigen sterktes.Heel belangrijk is dat jij altijd de centrale figuur bent in de coachingsessies.Jij bent altijd diegene die voor jezelf onderzoekt wat je kan en wat je wil.En je onderneemt ook eigen acties om jezelf bij te sturen naar een optimale slaagkans.",
-            Html = ""
-        };
-
         public static List<Gebruiker> Admins = new List<Gebruiker>()
         {
             new Gebruiker("admin", "admin"),
