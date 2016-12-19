@@ -70,8 +70,10 @@
                                     <Border Background="#FF0081C5">
                                         <TextBlock Text="{Binding Naam}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" Padding="10,5,10,5" TextAlignment="Center"/>
                                     </Border>
-                                    <TextBlock Text="{Binding Datum}" Margin="10,5,10,5"/>
-                                    <TextBlock Text="{Binding Uitleg}" Margin="10,5,10,5"/>
+                                    <TextBlock Text="{Binding Datum}" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource BaseTextBlockStyle}"/>
+                                    <TextBlock Text="{Binding Uur}" Margin="10,0,10,5" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource BodyTextBlockStyle}"/>
+                                    <TextBlock Text="{Binding Uitleg}" Margin="10,5,10,5" Style="{StaticResource BodyTextBlockStyle}"/>
+                                    <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

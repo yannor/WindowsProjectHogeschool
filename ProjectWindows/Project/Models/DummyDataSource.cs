@@ -96,7 +96,7 @@ namespace Project.Models
 
             Evenementen = new List<Evenement>()
             {
-                new Evenement {Naam = "opendeurdag", Uitleg = "Kom gerust eens langs en kijk eens rond op de campus" },
+                new Evenement {Naam = "Opendeurdag", Uitleg = "Kom gerust eens langs en kijk eens rond op de campus", Uur="14u - 16u"},
                 new Evenement {Naam = "Projectvoorstelling", Uitleg = "Gaan we in de prijzen vallen? ;)" }
             }
         };

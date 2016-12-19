@@ -11,7 +11,7 @@ namespace Project.Models
         public string Naam { get; set; }
         public string Uitleg { get; set; }
         public DateTime Datum { get; set; }
-        public double Startuur { get; set; }
-        public double Einduur { get; set; }
+        public string Uur { get; set; }
+
     }
 }
