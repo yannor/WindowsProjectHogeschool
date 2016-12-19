@@ -36,11 +36,9 @@ namespace Project.ViewModels
         
 
         private DelegateCommand _saveCommand;
-        public DelegateCommand SaveCommand
-        {
-            get { return _saveCommand; }
-            set { _saveCommand = value; }
-        }
+        public DelegateCommand SaveCommand => _saveCommand ?? (_saveCommand = new DelegateCommand(() => {
+            SaveRichting();
+        }));
 
         private DelegateCommand _editCommand;
         public DelegateCommand EditCommand => _editCommand ?? (_editCommand = new DelegateCommand(() => {

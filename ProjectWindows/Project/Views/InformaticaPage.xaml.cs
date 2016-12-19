@@ -32,23 +32,6 @@ namespace Project.Views
             //ViewModel.IsLoggedIn = true;
             //DataContext = new RichtingViewModel(DummyDataSource.RichtingToegepasteInformatica);
            ViewModel.Richting = DummyDataSource.RichtingToegepasteInformatica;
-
-            ViewModel.SaveCommand = new DelegateCommand(Save);
-        }
-
-        private void Save()
-        {
-
-            //Richting r = DummyDataSource.RichtingToegepasteInformatica;
-
-            //r.Description = txtDesc.Text;
-            //r.Html = txtUrl.Text;
-            //r.Title = txtTitle.Text;
-
-            
-
-            ViewModel.SaveRichting();
-            //ViewModel.IsLoggedIn = false;
         }
     }
 }

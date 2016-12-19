@@ -21,7 +21,6 @@
                 <VisualState x:Name="LoggedIn">
                     <VisualState.StateTriggers>
                         <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsLoggedIn}" />
-                        <!--<StateTrigger IsActive="{x:Bind ViewModel.IsLoggedIn}"></StateTrigger>-->
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="btnSave.Visibility" Value="Visible" />
