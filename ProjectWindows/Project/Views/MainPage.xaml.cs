@@ -47,9 +47,10 @@ namespace Project.Views
             appointment.Subject = e.Naam;
             appointment.Details = e.Uitleg;
             appointment.Location = "HoGent Campus Aalst, Arbeidstraat 14";
-            appointment.StartTime = new DateTime(e.Datum.Year, e.Datum.Month, e.Datum.Day);
+            appointment.StartTime = e.Datum;
             var rect = MainPage.GetElementRect(this as FrameworkElement);
             String appointmentId = await AppointmentManager.ShowAddAppointmentAsync(appointment, rect, Windows.UI.Popups.Placement.Default);
+            
         }
 
         public async void showPointOnMap()
@@ -146,7 +147,8 @@ namespace Project.Views
 
         private void AddToCalender(object sender, RoutedEventArgs e)
         {
-            Evenement ev = new Evenement();
+            Button obj = (Button)sender;
+            Evenement ev = (Evenement)obj.DataContext;
             AddEvent(ev);
         }
     }
