@@ -63,7 +63,7 @@ namespace Project.Views
             String xml = "<toast launch=\"app - defined - string\">"
                 + "<visual>"
                 + "<binding template=\"ToastGeneric\">"
-                + "<text>Notification</text>"
+                + "<text>HoGent Campus Aalst</text>"
                 + "<text>" + msg + "</text>"
                 + "<image src = \"https://www.hogent.be/www/assets/Image/campusAalstCoverBuiten.jpg \" />"
                 + "<image placement=\"appLogoOverride\" src=\"https://www.hogent.be/www/assets/Image/campusAalstCoverBuiten.jpg \" hint-crop=\"circle\" />"
