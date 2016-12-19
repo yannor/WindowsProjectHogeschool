@@ -63,12 +63,12 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" BorderBrush="Black" BorderThickness="1">
                                     <Border Background="#FF0081C5">
-                                        <TextBlock Text="{Binding Naam}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" Padding="10,5,10,5" TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Naam}" Style="{StaticResource SubtitleTextBlockStyle}" FontWeight="Bold" Padding="10,5,10,5" TextAlignment="Center" Foreground="WhiteSmoke"/>
                                     </Border>
                                     <TextBlock Text="{Binding Datum}" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource BaseTextBlockStyle}"/>
                                     <TextBlock Text="{Binding Uur}" Margin="10,0,10,5" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource BodyTextBlockStyle}"/>
                                     <TextBlock Text="{Binding Uitleg}" Margin="10,5,10,5" Style="{StaticResource BodyTextBlockStyle}"/>
-                                    <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5" HorizontalAlignment="Center"  Click="AddToCalender"/>
+                                    <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5"  HorizontalAlignment="Center"  Click="AddToCalender"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -76,7 +76,7 @@
                    
                     
                     <TextBlock x:Name="Route" Padding="0,5,0,5" Text="Locatie" FontSize="18" FontWeight="Bold"/>
-                    <Button Content="Routebeschrijving" Click="Button_Click" Margin="5,5,0,5" Background="#FF0081C5"/>
+                    <Button Content="Routebeschrijving" Click="Button_Click" Margin="5,5,0,5" Background="#FF0081C5" />
                     <maps:MapControl x:Name="MyMap"  ZoomLevel="16" Height="500"/>
                 </StackPanel>
             </ScrollViewer>
