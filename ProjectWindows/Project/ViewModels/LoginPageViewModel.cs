@@ -56,9 +56,9 @@ namespace Project.ViewModels
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
-            Views.Busy.SetBusy(true, "Laden");
-            await Task.Delay(500);
-            Views.Busy.SetBusy(false);
+            //Views.Busy.SetBusy(true, "Laden");
+            //await Task.Delay(500);
+            //Views.Busy.SetBusy(false);
             await Task.CompletedTask;
         }
 

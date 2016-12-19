@@ -134,7 +134,7 @@
                         <maps:MapControl x:Name="MyMap"  ZoomLevel="16" Height="500"/>
 
 
-                        <Button x:Name="btnEdit"   Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
+                        <Button x:Name="btnEdit" Margin="0,10,0,0"  Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
 
                     </StackPanel>
 
@@ -170,7 +170,7 @@
 
                         <Button x:Name="btnAddEvenement" Content="Voeg evenement toe" Click="btnAddEvenement_Click"/>
 
-                        <Button x:Name="btnSave"   Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
+                        <Button x:Name="btnSave" Margin="0,10,0,0"  Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
                     </StackPanel>
 
                     
