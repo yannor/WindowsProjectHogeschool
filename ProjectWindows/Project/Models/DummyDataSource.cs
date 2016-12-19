@@ -65,25 +65,70 @@ namespace Project.Models
         public static Richting AccountancyFiscaliteit = new Richting()
         {
             Title =
-                "Accountancy-Fiscaliteit"
+                "Accountancy-Fiscaliteit",
+
+            Html =
+                "https://www.youtube.com/embed/X4gLzqlVUMw",
+
+            Description =
+                "De afstudeerrichting accountancy - fiscaliteit is een brede,"
+                + "maar tegelijkertijd zeer diepgaande praktijkgerichte opleiding.Cijfers staan hier voorop.Je verwerft op een boeiende manier inzicht in al de relevante aspecten van het financieel ondernemen.Daardoor zal je na je studies in staat zijn om heel zelfstandig te kunnen functioneren.Of je nu de financiële steunpilaar wordt van het management in 1 of andere onderneming,"
+                + "dan wel als je kiest om zelfstandig verantwoordelijkheid op te nemen: met je up - to - date inzicht in planning en beleid op financieel vlak heb je gegarandeerd de beste carrièrekansen."
         };
 
         public static Richting FinanceEnVerzeker = new Richting()
         {
             Title =
-               "Financien en verzekeringen"
+               "Financien en verzekeringen",
+
+            Html =
+                "https://www.youtube.com/embed/9pbXCOLVrCA", 
+
+            Description =
+                "De afstudeerrichting financie- en verzekeringswezen is een brede, maar tegelijkertijd zeer gespecialiseerde en zeer praktijkgerichte opleiding."
+                + "Je verwerft namelijk om te beginnen een ruim inzicht in alle essentiële juridische en algemeen bedrijfseconomische materies.Die kennis vormt dan gelijk een ideaal fundament om een grondige know how op te bouwen rond alles wat met bankproducten en verzekeringen te maken heeft."
+                + "En dit is een schot in de roos.De grens tussen de verzekeringswereld en de financiële diensten vervaagt immers van dag tot dag.De vraag naar goed geschoolde specialisten in beide branches is dan ook zeer groot : mensen met visie die zowel over verzekeringen als over bankproducten kunnen meepraten.Mensen die oplossingen kunnen aanreiken in beide materies.En slimme praktische beslissingen kunnen nemen."
+                + "Wil je een echt goeie specialist worden in bankproducten en verzekeringen ? Ga dan voor een bachelor financie - en verzekeringswezen aan de HoGent."
+                + "Je hoeft voor deze afstudeerrichting niet over specifieke voorkennis te beschikken.Een uitgesproken reken - of talenknobbel is ook al niet nodig.Wel moet je natuurlijk alert zijn voor wat zich op het economische vlak afspeelt.En je moet geboeid zijn door de bewegingen op de financiële markten en alles willen weten en doorgronden over verzekeringen.De vraag 'wie is aansprakelijk voor dit ongeval, waarom & wat zijn de gevolgen ?' fascineert je.Daar wil je je in vastbijten."
         };
 
         public static Richting kmo = new Richting()
         {
             Title =
-               "KMO management"
+               "KMO management",
+
+            Html =
+                "https://www.youtube.com/embed/2btLdq2Uu40",
+
+            Description =
+                "Vandaar dat je via je kmo - management training klaar inzicht krijgt in alle relevante aspecten van het zakelijk ondernemen : strategische aanpak,"
+                + "organisatie,"
+                + "juridisch luik,"
+                + "financieel plan,"
+                + "commercieel beleid,"
+                + "HRM,"
+                + "logistiek,"
+                + "marketing & communicatie.Zo leer je de samenhang zien vanuit een overkoepelend perspectief zonder natuurlijk de soms belangrijke details uit het oog te verliezen."
+                + "Vlaanderen is een echte kmo - regio: ondernemingen met minder dan 50 werknemers vertegenwoordigen 96 % van het totaal aantal ondernemingen.Goed voor 42 % van de tewerkstelling in Vlaanderen.Binnen de organisatiestructuur van een kmo zijn de taken niet altijd strikt verdeeld.Daarom is veelzijdigheid van de werknemers een absolute vereiste.En daar speelt de opleiding ook op in."
         };
 
         public static Richting Marketing = new Richting()
         {
             Title =
-               "Marketing"
+               "Marketing",
+
+            Html =
+                "https://www.youtube.com/embed/1XPYNDX7Mzc",
+
+            Description =
+                "De afstudeerrichting marketing is een brede,"
+                +"maar tegelijkertijd zeer diepgaande en zeer boeiende praktijkgerichte opleiding."
+                + "Marketing is de drijfveer van elke onderneming.Marketing zorgt ervoor dat producten en diensten succesvol op de markt worden gelanceerd.Dat ze succesvol blijven."
+                + "Dat ze koopbaar en verkoopbaar zijn.Marketing maakt van producten merken.Brands.Marketing zorgt dat merken  afgestemd zijn op de behoeften.Dat ze efficiënt gedistribueerd worden."
+                + "Dat ze verstandig en origineel gecommuniceerd worden via reclamecampagnes,"
+                + "interactieve sites en bijvoorbeeld ook Facebook & Twitter."
+
+
         };
 
 
