@@ -234,6 +234,9 @@
     </Page>
     <Page Include="Views\NieuwEventDialog.xaml">
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Marketing.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OfficePage.xaml">
