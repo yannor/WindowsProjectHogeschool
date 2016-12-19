@@ -8,11 +8,18 @@ namespace Project.Models
 {
     public class Gebruiker
     {
+        public Gebruiker()
+        {
+
+        }
+
         public Gebruiker(String username, String password)
         {
             Gebruikersnaam = username;
             Wachtwoord = password;
         }
+
+        public int GebruikerID { get; set; }
 
         public String Gebruikersnaam { get; private set; }
 

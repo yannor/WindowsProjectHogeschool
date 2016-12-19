@@ -9,6 +9,7 @@ namespace Project.Models
 {
     public class Campus
     {
+        public int CampusID { get; set; }
         public ObservableCollection<Evenement> Evenementen { get; set; }
         public string Uitleg { get; set; }
     }
