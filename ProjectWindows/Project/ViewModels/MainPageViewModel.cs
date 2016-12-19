@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Project.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
+    public class MainPageViewModel : ProjectViewModelBase
     {
         public MainPageViewModel()
         {

@@ -8,16 +8,16 @@ using Windows.UI.Xaml.Navigation;
 using Project.Models;
 using Template10.Mvvm;
 using Template10.Services.NavigationService;
+using Project.Services.ProjectService;
 
 namespace Project.ViewModels
 {
-    public class RichtingViewModel : ViewModelBase
+    public class RichtingViewModel : ProjectViewModelBase
     {
         
 
         public RichtingViewModel()
         {
-            IsLoggedIn = true;
            // _richting = new Richting() { Description="", Html="http://google.com", Title=""};
         }
 
@@ -33,12 +33,7 @@ namespace Project.ViewModels
             }
         }
 
-        private Boolean _isLoggedIn;
-
-        public Boolean IsLoggedIn {
-            get { return _isLoggedIn; }
-            set { _isLoggedIn = value; RaisePropertyChanged(); }
-        }
+        
 
         private DelegateCommand _saveCommand;
         public DelegateCommand SaveCommand
@@ -49,22 +44,30 @@ namespace Project.ViewModels
 
         private DelegateCommand _editCommand;
         public DelegateCommand EditCommand => _editCommand ?? (_editCommand = new DelegateCommand(() => {
-            IsLoggedIn = !IsLoggedIn;
+            SetEditMode(!ProjectService.Instance.IsInEditMode);
         }));
+
+        private void SetEditMode(bool val)
+        {
+            IsInEditMode = val;
+            ProjectService.Instance.IsInEditMode = val;
+        }
 
         public void SaveRichting()
         {
             //TODO: save de richting met de API
+            SetEditMode(false);
             RaisePropertyChanged("Richting");
             
         }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)
         {
+            await base.OnNavigatedToAsync(parameter, mode, suspensionState);
 
             Richting = (suspensionState.ContainsKey(nameof(Richting))) ? (Richting)suspensionState[nameof(Richting)] : (Richting)parameter;
             //IsLoggedIn = (suspensionState.ContainsKey(nameof(IsLoggedIn))) ? (Boolean)suspensionState[nameof(IsLoggedIn)] : (Boolean)parameter;
-
+            ProjectService p = ProjectService.Instance;
 
             Views.Busy.SetBusy(true, "Laden");
             await Task.Delay(500);

@@ -29,7 +29,7 @@ namespace Project.Views
         {
             this.InitializeComponent();
            NavigationCacheMode = NavigationCacheMode.Disabled;
-
+            //ViewModel.IsLoggedIn = true;
             //DataContext = new RichtingViewModel(DummyDataSource.RichtingToegepasteInformatica);
            ViewModel.Richting = DummyDataSource.RichtingToegepasteInformatica;
 
@@ -48,7 +48,7 @@ namespace Project.Views
             
 
             ViewModel.SaveRichting();
-            ViewModel.IsLoggedIn = false;
+            //ViewModel.IsLoggedIn = false;
         }
     }
 }

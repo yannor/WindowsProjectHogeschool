@@ -47,5 +47,13 @@ namespace Project.Models
             +"In het tweede en het derde jaar ligt de focus op je persoonlijke ontwikkeling en op je beroepskeuze.Je coach bespreekt ook samen met jou de ideale stageplaats als voorbereiding op de job die je graag wil.Je leert ook meteen om een goed CV op te stellen dat vertrekt van je eigen sterktes.Heel belangrijk is dat jij altijd de centrale figuur bent in de coachingsessies.Jij bent altijd diegene die voor jezelf onderzoekt wat je kan en wat je wil.En je onderneemt ook eigen acties om jezelf bij te sturen naar een optimale slaagkans.",
             Html = ""
         };
+
+        public static List<Gebruiker> Admins = new List<Gebruiker>()
+        {
+            new Gebruiker("admin", "admin"),
+            new Gebruiker("matthiee", "wachtwoord"),
+            new Gebruiker("yannor", "wachtwoord"),
+            new Gebruiker("drieswillems", "wachtwoord")
+        };
     }
 }

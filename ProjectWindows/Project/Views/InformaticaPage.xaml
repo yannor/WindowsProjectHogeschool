@@ -24,13 +24,34 @@
                         <!--<StateTrigger IsActive="{x:Bind ViewModel.IsLoggedIn}"></StateTrigger>-->
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="SPLoggedOut.Visibility" Value="Collapsed" />
-                        <Setter Target="SPLoggedIn.Visibility" Value="Visible" />
+                        <Setter Target="btnSave.Visibility" Value="Visible" />
+                        <Setter Target="btnEdit.Visibility" Value="Visible" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="LoggedOut">
                     <VisualState.StateTriggers>
                         <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="btnSave.Visibility" Value="Collapsed" />
+                        <Setter Target="btnEdit.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="InEditMode">
+                <VisualState x:Name="InEditModeTrue">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsInEditMode}" />
+                        <!--<StateTrigger IsActive="{x:Bind ViewModel.IsLoggedIn}"></StateTrigger>-->
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedOut.Visibility" Value="Collapsed" />
+                        <Setter Target="SPLoggedIn.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="InEditModeFalse">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsInEditMode}" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="SPLoggedOut.Visibility" Value="Visible" />
@@ -87,13 +108,13 @@
                     <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
                     <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" />
                     <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=TwoWay}" Height="500" />
-                    <Button x:Name="btnEdit" Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
+                    <Button x:Name="btnEdit"   Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
                 </StackPanel>
                 <StackPanel x:Name="SPLoggedIn" Visibility="Visible">
                     <TextBox x:Name="txtTitle"  Header="Titel:" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}"  />
                     <TextBox x:Name="txtDesc" TextWrapping="Wrap" Header="Beschrijving:" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Height="500" />
                     <TextBox x:Name="txtUrl" Header="Video url:" Text="{x:Bind ViewModel.Richting.Html, Mode=TwoWay}"  />
-                    <Button x:Name="btnSave" Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
+                    <Button x:Name="btnSave"   Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
