@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Project.Models
 {
-    class Evenement
+    public class Evenement
     {
         public string Naam { get; set; }
         public string Uitleg { get; set; }
         public DateTime Datum { get; set; }
-        public int Startuur { get; set; }
-        public int Einduur { get; set; }
+        public double Startuur { get; set; }
+        public double Einduur { get; set; }
     }
 }

@@ -21,8 +21,9 @@ namespace Project.Views
         public MainPage()
         {
             InitializeComponent();
-            NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-        
+            NavigationCacheMode = NavigationCacheMode.Enabled;
+            ViewModel.Campus = DummyDataSource.Aalst;
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

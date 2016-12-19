@@ -8,6 +8,7 @@ namespace Project.Models
 {
     public class Campus
     {
+        public List<Evenement> Evenementen { get; set; }
         public string Uitleg { get; set; }
     }
 }
