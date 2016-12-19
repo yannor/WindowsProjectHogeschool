@@ -144,6 +144,7 @@
     <Content Include="Assets\HoGentAalst.jpg" />
     <Content Include="Assets\informatica.jpg" />
     <Content Include="Assets\officemanagement.jpg" />
+    <Content Include="Assets\windowsIconSplash.png" />
     <Content Include="Help.htm" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
