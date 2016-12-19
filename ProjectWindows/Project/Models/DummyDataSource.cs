@@ -18,32 +18,31 @@ namespace Project.Models
 
         public static Richting RichtingOfficeManagement = new Richting()
         {
-            Title = 
+            Title =
                 "Office Management",
 
-            Description = 
+            Description =
                 "Je bent een doener en je houdt van uitdagingen. In een team ben jij diegene die organiseert en coördineert. Je weet van aanpakken en bent een punctuele multitasker. Voor jou moeten de zaken vooruitgaan, goed getimed en gepland. Talen zijn volledig je ding en je communiceert graag. Je blik is internationaal, je aanpak no-nonsense.",
 
-            Activiteiten = 
+            Activiteiten =
                 "In het derde jaar bachelor trekken de studenten bedrijfsvertaler-tolk trekken een week naar de Oostkantons voor een intensieve training in vertaal- en tolkopdrachten. De studenten wonen voordrachten en sessies bij in het Frans, Engels, Duits en Spaans waarbij thema’s aan bod komen met economische, politieke, toeristische, en geschiedkundige achtergrond. De opdrachten bestaan o.a. uit consecutief tolken en het mondeling en schriftelijk synthetiseren van de voordrachten en de bezoeken in de verschillende vreemde talen. Op het einde van de week geeft iedere groep een mondelinge meertalige presentatie voor medestudenten en begeleiders met daarin de resultaten van de afgelopen seminarieweek."
                 + "Daarnaast organiseert de faculteit elk jaar een internationale week met befaamde buitenlandse gastsprekers die lezingen en workshops geven: van software quality tot international negotiating,"
                 + "van happiness in a cultural context tot een initiatie flamencodansen,"
                 + "van El Cine espanol contemporaneo tot Une approche comparative de la presse française,.....Deze week biedt de studenten de kans hun diploma een internationaal tintje te geven.",
 
-            Titel2 = 
+            Titel2 =
                 "Geen theorie zonder praktijk",
 
-            PraktijkVoorop = 
+            PraktijkVoorop =
                 "In het derde jaar bachelor trekken de studenten bedrijfsvertaler-tolk trekken een week naar de Oostkantons voor een intensieve training in vertaal- en tolkopdrachten. De studenten wonen voordrachten en sessies bij in het Frans, Engels, Duits en Spaans waarbij thema’s aan bod komen met economische, politieke, toeristische, en geschiedkundige achtergrond. De opdrachten bestaan o.a. uit consecutief tolken en het mondeling en schriftelijk synthetiseren van de voordrachten en de bezoeken in de verschillende vreemde talen. Op het einde van de week geeft iedere groep een mondelinge meertalige presentatie voor medestudenten en begeleiders met daarin de resultaten van de afgelopen seminarieweek."
                 + "Daarnaast organiseert de faculteit elk jaar een internationale week met befaamde buitenlandse gastsprekers die lezingen en workshops geven: van software quality tot international negotiating,"
                 + "van happiness in a cultural context tot een initiatie flamencodansen,"
                 + "van El Cine espanol contemporaneo tot Une approche comparative de la presse française,.....Deze week biedt de studenten de kans hun diploma een internationaal tintje te geven.",
 
-            Voorkennis =
-                { "Taal", "De minimaal vereiste begincompetenties", "Het talenonderwijs in de eerste bachelor office Management bouwt verder op de basis van het secundair. Een degelijke basis van het Frans en het Engels is aan te raden om de studie vlot te doorlopen. Hieronder vind je een lijst van de taalkundige vaardigheden die je moet beheersen wil je vlot kunnen starten met de opleiding."
-                , "1. Basisgrammatica", "2. Basiswoordenschat die nodig is om zich in een dagdagelijkse communicatieve situatie tegenover een native speaker zowel schriftelijk als mondeling vlot en correct uit te kunnen drukken."
-                ,"3. Elementair inzicht in zinsstructuren en woordsoorten.", "Economie en globalisering", "Begincompetenties", "1. Procentberekening (prijzen inclusief BTW kunnen omrekenen naar prijzen exclusief BTW en andersom (regel van drie))"
-                , "2. Vergelijkingen oplossen (eerste graad)", "3. Grafisch een functie weergeven en interpreteren (eerste graad) "},
+
+            Voorkennis = 
+                "Voorkennis",
+
 
             Html = "Benieuwd naar het niveau van jouw voorkennis? Doe de tien - minuten - test en check hoe ver jij al staat.",
 

@@ -14,7 +14,7 @@ namespace Project.Models
         public string Html { get; set; }
         public List<Richting> Richtingen { get; set; }
         public string Activiteiten { get; set; }
-        public List<string> Voorkennis { get; set; }
+        public string Voorkennis { get; set; }
         public string PraktijkVoorop { get; set; }
         public string StudieFiche { get; set; }
         public string Titel2 { get; set; }

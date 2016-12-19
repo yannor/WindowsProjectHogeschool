@@ -141,10 +141,15 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\accountancyFiscaliteit_banner.jpg" />
     <Content Include="Assets\activiteiten.jpg" />
     <Content Include="Assets\bedrijfsmanagement.jpg" />
+    <Content Include="Assets\financieEnVerzekering_banner.jpg" />
     <Content Include="Assets\HoGentAalst.jpg" />
     <Content Include="Assets\informatica.jpg" />
+    <Content Include="Assets\kmoManagement_banner.jpg" />
+    <Content Include="Assets\managementAssistant_banner.jpg" />
+    <Content Include="Assets\marketing_banner.jpg" />
     <Content Include="Assets\officemanagement.jpg" />
     <Content Include="Help.htm" />
     <Content Include="Properties\Default.rd.xml" />
