@@ -18,11 +18,14 @@ namespace Project.Views
 {
     public sealed partial class MainPage : Page
     {
+        
         public MainPage()
         {
             InitializeComponent();
-            NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-        
+            NavigationCacheMode = NavigationCacheMode.Enabled;
+            ViewModel.Campus = DummyDataSource.Aalst;
+            //NieuwsItems.ItemsSource
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -38,16 +41,16 @@ namespace Project.Views
             Point point = buttonTransform.TransformPoint(new Point());
             return new Rect(point, new Size(element.ActualWidth, element.ActualHeight));
         }
-        private async void AddEvent()
+        private async void AddEvent(Evenement e)
         {
             var appointment = new Appointment();
-            appointment.Subject = "Opendeurdag HoGent";
-            appointment.Details = "Wilt u graag wat meer informatie? Kom gerust eens langs op onze opendeurdag op campus Aalst.";
+            appointment.Subject = e.Naam;
+            appointment.Details = e.Uitleg;
             appointment.Location = "HoGent Campus Aalst, Arbeidstraat 14";
-            appointment.StartTime = new DateTime(2017, 4, 22, 10,00,00);
-            appointment.Duration = TimeSpan.FromHours(7);
+            appointment.StartTime = e.Datum;
             var rect = MainPage.GetElementRect(this as FrameworkElement);
             String appointmentId = await AppointmentManager.ShowAddAppointmentAsync(appointment, rect, Windows.UI.Popups.Placement.Default);
+            
         }
 
         public async void showPointOnMap()
@@ -142,9 +145,11 @@ namespace Project.Views
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void AddToCalender(object sender, RoutedEventArgs e)
         {
-            AddEvent();
+            Button obj = (Button)sender;
+            Evenement ev = (Evenement)obj.DataContext;
+            AddEvent(ev);
         }
     }
 }

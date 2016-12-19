@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Project.Models
 {
-    public class Campus
+    public class Evenement
     {
-        public List<Evenement> Evenementen { get; set; }
+        public string Naam { get; set; }
         public string Uitleg { get; set; }
+        public DateTime Datum { get; set; }
+        public string Uur { get; set; }
+
     }
 }

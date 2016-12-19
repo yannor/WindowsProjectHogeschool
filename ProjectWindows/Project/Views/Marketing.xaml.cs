@@ -1,4 +1,5 @@
 ﻿using Project.Models;
+using Project.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,34 +22,15 @@ namespace Project.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class BedrijfsPage : Page
+    public sealed partial class Marketing : Page
     {
-        public BedrijfsPage()
+        public Marketing()
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Disabled;
 
-            ViewModel.Richting = DummyDataSource.RichtingBedrijfsManagement;
-        }
-
-        private void gaNaarAccountancy(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(AccountancyFiscaliteit));
-        }
-
-        private void gaNaarFinance(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(FinancienVerzekeringen));
-        }
-
-        private void gaNaarKmo(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Kmo));
-        }
-
-        private void gaNaarMarketing(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Marketing));
+            //DataContext = new RichtingViewModel(DummyDataSource.RichtingOfficeManagement);
+            ViewModel.Richting = DummyDataSource.Marketing;
         }
     }
 }

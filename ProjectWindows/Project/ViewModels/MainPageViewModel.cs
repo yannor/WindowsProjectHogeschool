@@ -5,11 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
+using Project.Models;
+using System.Collections.ObjectModel;
 
 namespace Project.ViewModels
 {
     public class MainPageViewModel : ProjectViewModelBase
     {
+        public Campus Campus { get; internal set; }
+
         public MainPageViewModel()
         {
            
