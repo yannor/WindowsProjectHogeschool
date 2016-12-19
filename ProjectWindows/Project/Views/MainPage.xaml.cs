@@ -13,25 +13,25 @@ using Template10.Services.NavigationService;
 using Windows.ApplicationModel.Appointments;
 using Windows.UI.Xaml.Media;
 using Project.Models;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace Project.Views
 {
     public sealed partial class MainPage : Page
     {
-        
         public MainPage()
         {
             InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Enabled;
             ViewModel.Campus = DummyDataSource.Aalst;
             //NieuwsItems.ItemsSource
-
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            showPointOnMap(); 
+            showPointOnMap();
         }
 
         //opendeurdag toevoegen aan kalender als evenement

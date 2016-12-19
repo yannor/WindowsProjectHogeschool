@@ -172,7 +172,6 @@
 
                         <Button x:Name="btnSave" Margin="0,10,0,0"  Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
                     </StackPanel>
-
                     
                 </StackPanel>
             </ScrollViewer>

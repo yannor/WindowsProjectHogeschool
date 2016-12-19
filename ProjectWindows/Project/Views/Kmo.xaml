@@ -74,6 +74,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <!--  TODO: change properties for narrow view  -->
+                        <Setter Target="stackText.Orientation" Value="Vertical" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
@@ -82,6 +83,7 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <!--  TODO: change properties for normal view  -->
+                        <Setter Target="stackText.Orientation" Value="Vertical" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateWide">
@@ -121,6 +123,7 @@
                     <Image x:Name="Titel"  Source="../Assets/kmoManagement_banner.jpg" MaxHeight="200" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
 
                 </Grid>
+
                 
                 <!-- Stackpen logged out -->
                 <StackPanel x:Name="SPLoggedOut" Visibility="Visible" Orientation="Vertical" Padding="8" Margin="16">
@@ -134,7 +137,7 @@
                     <TextBox Header="Title: " TextWrapping="Wrap" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
                     <TextBox  Header="Omschrijving: " TextWrapping="Wrap" FontSize="15" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Height="450" />
                     <Button x:Name="btnSave"   Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
-                </StackPanel>
+
 
 
             </StackPanel>
