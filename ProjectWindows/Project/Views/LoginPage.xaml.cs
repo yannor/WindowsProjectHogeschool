@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -53,6 +55,27 @@ namespace Project.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             viewmodel.Logout();
+        }
+
+        private void SendNotification(object s, RoutedEventArgs e)
+        {
+            String msg = txtInput.Text;
+            String xml = "<toast launch=\"app - defined - string\">"
+                + "<visual>"
+                + "<binding template=\"ToastGeneric\">"
+                + "<text>Notification</text>"
+                + "<text>" + msg + "</text>"
+                + "<image src = \"https://www.hogent.be/www/assets/Image/campusAalstCoverBuiten.jpg \" />"
+                + "<image placement=\"appLogoOverride\" src=\"https://www.hogent.be/www/assets/Image/campusAalstCoverBuiten.jpg \" hint-crop=\"circle\" />"
+                + "</binding>"
+                + "</visual>"
+                + "</toast> ";
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(xml);
+
+            ToastNotification notification = new ToastNotification(xmlDoc);
+            ToastNotificationManager.CreateToastNotifier().Show(notification);
         }
     }
 }

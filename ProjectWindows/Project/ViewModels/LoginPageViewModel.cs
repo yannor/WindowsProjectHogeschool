@@ -41,6 +41,7 @@ namespace Project.ViewModels
                 {
                     ProjectService.Instance.CurrentUSer = g;
                     ProjectService.Instance.IsLoggedIn = true;
+                    IsLoggedIn = true;
                     return true;
                 }
             }
@@ -52,6 +53,7 @@ namespace Project.ViewModels
         {
             ProjectService.Instance.IsLoggedIn = false;
             ProjectService.Instance.IsInEditMode = false;
+            IsLoggedIn = false;
         }
 
         public override async Task OnNavigatedToAsync(object parameter, NavigationMode mode, IDictionary<string, object> suspensionState)

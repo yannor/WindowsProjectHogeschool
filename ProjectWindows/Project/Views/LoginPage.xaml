@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:Project.ViewModels"
+    xmlns:triggers="using:WindowsStateTriggers"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -13,8 +14,33 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="Uitloggen" Click="Button_Click" VerticalAlignment="Top"/>
-        <Grid VerticalAlignment="Center" Margin="8" Padding="16">
+
+        <VisualStateManager.VisualStateGroups>
+            <!-- LOGGED IN GROUP -->
+            <VisualStateGroup x:Name="LogInGroup">
+                <VisualState x:Name="LoggedIn">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedIn.Visibility" Value="Visible" />
+                        <Setter Target="SPLoggedOut.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="LoggedOut">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedIn.Visibility" Value="Collapsed" />
+                        <Setter Target="SPLoggedOut.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        
+        <Grid x:Name="SPLoggedOut" VerticalAlignment="Center" Margin="8" Padding="16">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -38,5 +64,14 @@
                         HorizontalAlignment="Stretch"  Margin="8" Click="btnRegister_Click"/>
             </Grid>
         </Grid>
+
+        <StackPanel x:Name="SPLoggedIn" Visibility="Collapsed" Padding="8" Margin="16" Orientation="Vertical" VerticalAlignment="Center">
+
+            <TextBox x:Name="txtInput" Header="Notificatie bericht" TextWrapping="Wrap" Height="100"/>
+            <Button Content="verstuur notificatie" HorizontalAlignment="Right" Click="SendNotification"/>
+
+            <Button Content="Uitloggen" Click="Button_Click" VerticalAlignment="Top"/>
+        </StackPanel>
+        
     </Grid>
 </Page>
