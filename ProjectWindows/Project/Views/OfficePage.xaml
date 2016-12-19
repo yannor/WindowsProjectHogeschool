@@ -67,7 +67,7 @@
                         <SolidColorBrush Color="#FF0081C5">
                         </SolidColorBrush>
                     </Grid.Background>
-                    <Image x:Name="Titel"  Source="../Assets/officemanagement.jpg" MaxHeight="200" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+                    <Image x:Name="Titel"  Source="../Assets/officemanagement.jpg" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
 
                 </Grid>
 

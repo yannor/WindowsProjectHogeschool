@@ -97,13 +97,20 @@
 
         <!--  content  -->
         <ScrollViewer EntranceNavigationTransitionInfo.IsTargetElement="True"
-                      Padding="12,8,0,0"
                       RelativePanel.AlignBottomWithPanel="True"
                       RelativePanel.AlignLeftWithPanel="True"
                       RelativePanel.AlignRightWithPanel="True"
                       RelativePanel.Below="pageHeader"
                       VerticalScrollBarVisibility="Auto">
             <StackPanel>
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF0081C5">
+                        </SolidColorBrush>
+                    </Grid.Background>
+                    <Image x:Name="Titel"  Source="../Assets/informatica.jpg" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+
+                </Grid>
                 <StackPanel x:Name="SPLoggedOut" Visibility="Collapsed">
                     <TextBlock Margin="10,5,10,5" Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
                     <TextBlock Margin="10,5,10,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />

@@ -67,11 +67,11 @@ namespace Project.ViewModels
 
             Richting = (suspensionState.ContainsKey(nameof(Richting))) ? (Richting)suspensionState[nameof(Richting)] : (Richting)parameter;
             //IsLoggedIn = (suspensionState.ContainsKey(nameof(IsLoggedIn))) ? (Boolean)suspensionState[nameof(IsLoggedIn)] : (Boolean)parameter;
-            ProjectService p = ProjectService.Instance;
+            //ProjectService p = ProjectService.Instance;
 
-            Views.Busy.SetBusy(true, "Laden");
-            await Task.Delay(500);
-            Views.Busy.SetBusy(false);
+            //Views.Busy.SetBusy(true, "Laden");
+            //await Task.Delay(500);
+            //Views.Busy.SetBusy(false);
             await Task.CompletedTask;
         }
 
