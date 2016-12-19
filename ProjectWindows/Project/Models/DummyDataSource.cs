@@ -65,25 +65,29 @@ namespace Project.Models
         public static Richting AccountancyFiscaliteit = new Richting()
         {
             Title =
-                "Accountancy-Fiscaliteit"
+                "Accountancy-Fiscaliteit",
+            Description="Beschriving"
         };
 
         public static Richting FinanceEnVerzeker = new Richting()
         {
             Title =
-               "Financien en verzekeringen"
+               "Financien en verzekeringen",
+            Description = "Beschriving"
         };
 
         public static Richting kmo = new Richting()
         {
             Title =
-               "KMO management"
+               "KMO management",
+            Description = "Beschriving"
         };
 
         public static Richting Marketing = new Richting()
         {
             Title =
-               "Marketing"
+               "Marketing",
+            Description = "Beschriving"
         };
 
 

@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:Project.ViewModels"
     xmlns:controls="using:Template10.Controls"
+    xmlns:triggers="using:WindowsStateTriggers"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -16,6 +17,47 @@
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="LogInGroup">
+                <VisualState x:Name="LoggedIn">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="btnSave.Visibility" Value="Visible" />
+                        <Setter Target="btnEdit.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="LoggedOut">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="btnSave.Visibility" Value="Collapsed" />
+                        <Setter Target="btnEdit.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="InEditMode">
+                <VisualState x:Name="InEditModeTrue">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsInEditMode}" />
+                        <!--<StateTrigger IsActive="{x:Bind ViewModel.IsLoggedIn}"></StateTrigger>-->
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedOut.Visibility" Value="Collapsed" />
+                        <Setter Target="SPLoggedIn.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="InEditModeFalse">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsInEditMode}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedOut.Visibility" Value="Visible" />
+                        <Setter Target="SPLoggedIn.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
             <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
                 <VisualState x:Name="VisualStateNarrow">
                     <VisualState.StateTriggers>
@@ -71,40 +113,74 @@
 
                 </Grid>
 
+                <StackPanel x:Name="SPLoggedOut" Visibility="Visible" Orientation="Vertical" Margin="16" Padding="8">
+                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
+                    <TextBlock  FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" />
 
-                <TextBlock Margin="10,5,10,5" Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
-                <TextBlock Margin="10,5,10,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
+                    <TextBlock  FontWeight="Bold" FontSize="20" Text="{x:Bind ViewModel.Richting.Titel2, Mode=TwoWay}"></TextBlock>
+                    <TextBlock  FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description2, Mode=TwoWay}" />
 
-                <TextBlock Margin="10,10,10,5" FontWeight="Bold" FontSize="20" Text="{x:Bind ViewModel.Richting.Titel2}"></TextBlock>
-                <TextBlock Margin="10,5,10,25" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description2, Mode=OneWay}" />
+                    <Pivot>
+                        <PivotItem Header="Voorkennis">
+                            <!--Pivot content goes here-->
+                            <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10" >
+                                <TextBlock Text="{x:Bind ViewModel.Richting.Voorkennis, Mode=TwoWay}" Margin="40,10,40,10"/>
+                            </StackPanel>
+                        </PivotItem>
 
+                        <PivotItem Header="Praktijk voorop">
+                            <!--Pivot content goes here-->
+                            <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
+                                <TextBlock Text="{x:Bind ViewModel.Richting.PraktijkVoorop, Mode=TwoWay}" Margin="40,10,40,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                            </StackPanel>
+                        </PivotItem>
 
+                        <PivotItem Header="Activiteiten">
+                            <!--Pivot content goes here-->
+                            <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
+                                <TextBlock Text="{x:Bind ViewModel.Richting.Activiteiten, Mode=TwoWay}" Margin="40,10,40,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}"/>
+                                <Image Source="../Assets/activiteiten.jpg" Width="500" Height="500" HorizontalAlignment="Left" Margin="40,10,40,10"/>
+                            </StackPanel>
+                        </PivotItem>
+                    </Pivot>
 
-                <Pivot x:Name="rootPivot">
-                    
-                    <PivotItem Header="Voorkennis">
-                        <!--Pivot content goes here-->
-                        <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10" >
-                            <TextBlock Text="{x:Bind ViewModel.Richting.Voorkennis}" Margin="40,10,40,10"/>
-                        </StackPanel>
-                    </PivotItem>
-                    
-                    <PivotItem Header="Praktijk voorop">
-                        <!--Pivot content goes here-->
-                        <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
-                            <TextBlock Text="{x:Bind ViewModel.Richting.PraktijkVoorop}" Margin="40,10,40,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}"/>
-                        </StackPanel>
-                    </PivotItem>
-                    
-                    <PivotItem Header="Activiteiten">
-                        <!--Pivot content goes here-->
-                        <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
-                            <TextBlock Text="{x:Bind ViewModel.Richting.Activiteiten}" Margin="40,10,40,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}"/>
-                            <Image Source="../Assets/activiteiten.jpg" Width="500" Height="500" HorizontalAlignment="Left" Margin="40,10,40,10"/>
-                        </StackPanel>
-                    </PivotItem>
-                    
-                </Pivot>
+                    <Button x:Name="btnEdit"   Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
+                </StackPanel>
+
+                <StackPanel x:Name="SPLoggedIn" Visibility="Collapsed" Orientation="Vertical" Margin="16" Padding="8">
+                    <TextBox Header="Titel"  TextWrapping="Wrap" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
+                    <TextBox Header="Beschrijving"  TextWrapping="Wrap" FontSize="15" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Height="100"/>
+
+                    <TextBox Header="Titel 2" TextWrapping="Wrap"  FontWeight="Bold" FontSize="20" Text="{x:Bind ViewModel.Richting.Titel2, Mode=TwoWay}"/>
+                    <TextBox Header="Beschrijving 2" TextWrapping="Wrap"  FontSize="15" Text="{x:Bind ViewModel.Richting.Description2, Mode=TwoWay}" Height="100"/>
+
+                    <Pivot>
+                        <PivotItem Header="Voorkennis">
+                            <!--Pivot content goes here-->
+                            <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10" >
+                                <TextBox Header="Voorkennis"  TextWrapping="Wrap" Text="{x:Bind ViewModel.Richting.Voorkennis, Mode=TwoWay}" Margin="40,10,40,10" Height="200"/>
+                            </StackPanel>
+                        </PivotItem>
+
+                        <PivotItem Header="Praktijk voorop">
+                            <!--Pivot content goes here-->
+                            <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
+                                <TextBox Header="Praktijk voorop" TextWrapping="Wrap" Text="{x:Bind ViewModel.Richting.PraktijkVoorop, Mode=TwoWay}" Margin="40,10,40,10" FontSize="15" Height="200" />
+                            </StackPanel>
+                        </PivotItem>
+
+                        <PivotItem Header="Activiteiten">
+                            <!--Pivot content goes here-->
+                            <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
+                                <TextBox Header="Activiteiten" TextWrapping="Wrap" Text="{x:Bind ViewModel.Richting.Activiteiten, Mode=TwoWay}" Margin="40,10,40,10" FontSize="15" Height="200" />
+                                <Image Source="../Assets/activiteiten.jpg" Width="500" Height="500" HorizontalAlignment="Left" Margin="40,10,40,10" />
+                            </StackPanel>
+                        </PivotItem>
+                    </Pivot>
+
+                    <Button x:Name="btnSave"   Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
+                </StackPanel>
+
             </StackPanel>
 
 

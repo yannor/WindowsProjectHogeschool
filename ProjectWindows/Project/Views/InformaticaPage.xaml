@@ -110,13 +110,13 @@
                     <Image x:Name="Titel"  Source="../Assets/informatica.jpg" MaxHeight="150" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
 
                 </Grid>
-                <StackPanel x:Name="SPLoggedOut" Visibility="Collapsed">
+                <StackPanel Padding="8" Margin="16" x:Name="SPLoggedOut" Visibility="Collapsed">
                     <TextBlock Margin="10,5,10,5" Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
                     <TextBlock Margin="10,5,10,10" FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=OneWay}" />
                     <WebView x:Name="webView" Source="{x:Bind ViewModel.Richting.Html, Mode=TwoWay}" Height="500" />
                     <Button x:Name="btnEdit"   Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
                 </StackPanel>
-                <StackPanel x:Name="SPLoggedIn" Visibility="Visible">
+                <StackPanel  Padding="8" Margin="16"  x:Name="SPLoggedIn" Visibility="Visible">
                     <TextBox x:Name="txtTitle"  Header="Titel:" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}"  />
                     <TextBox x:Name="txtDesc" TextWrapping="Wrap" Header="Beschrijving:" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Height="500" />
                     <TextBox x:Name="txtUrl" Header="Video url:" Text="{x:Bind ViewModel.Richting.Html, Mode=TwoWay}"  />

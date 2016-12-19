@@ -151,8 +151,8 @@
                 
                 <!-- SP logged in -->
                 <StackPanel x:Name="SPLoggedIn" Visibility="Visible" Orientation="Vertical" Padding="8" Margin="16">
-                    <TextBox Header="Title: " Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
-                    <TextBox  Header="Omschrijving: " FontSize="15" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Height="450" />
+                    <TextBox Header="Title: " TextWrapping="Wrap" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
+                    <TextBox  Header="Omschrijving: " TextWrapping="Wrap" FontSize="15" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Height="450" />
                     <Button x:Name="btnSave"   Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
                 </StackPanel>
                 

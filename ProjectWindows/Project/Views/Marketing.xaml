@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:Project.ViewModels"
     xmlns:controls="using:Template10.Controls"
+    xmlns:triggers="using:WindowsStateTriggers"
     mc:Ignorable="d">
 
     <Page.DataContext>
@@ -16,6 +17,53 @@
     <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <VisualStateManager.VisualStateGroups>
+
+            <!-- LOGGED IN GROUP -->
+            <VisualStateGroup x:Name="LogInGroup">
+                <VisualState x:Name="LoggedIn">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="btnSave.Visibility" Value="Visible" />
+                        <Setter Target="btnEdit.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="LoggedOut">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsLoggedIn}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="btnSave.Visibility" Value="Collapsed" />
+                        <Setter Target="btnEdit.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <!-- EDIT MODE GROUP -->
+            <VisualStateGroup x:Name="InEditMode">
+                <VisualState x:Name="InEditModeTrue">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="True" Value="{Binding Path=IsInEditMode}" />
+                        <!--<StateTrigger IsActive="{x:Bind ViewModel.IsLoggedIn}"></StateTrigger>-->
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedOut.Visibility" Value="Collapsed" />
+                        <Setter Target="SPLoggedIn.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="InEditModeFalse">
+                    <VisualState.StateTriggers>
+                        <triggers:EqualsStateTrigger EqualTo="False" Value="{Binding Path=IsInEditMode}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SPLoggedOut.Visibility" Value="Visible" />
+                        <Setter Target="SPLoggedIn.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+
+            <!-- ADAPTIVE GROUP -->
             <VisualStateGroup x:Name="AdaptiveVisualStateGroup">
                 <VisualState x:Name="VisualStateNarrow">
                     <VisualState.StateTriggers>
@@ -71,10 +119,19 @@
 
                 </Grid>
 
+                <!-- Stackpen logged out -->
+                <StackPanel x:Name="SPLoggedOut" Visibility="Visible" Orientation="Vertical" Padding="8" Margin="16">
+                    <TextBlock  Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
+                    <TextBlock  FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" />
+                    <Button x:Name="btnEdit"   Content="Edit" Command="{x:Bind ViewModel.EditCommand}"/>
+                </StackPanel>
 
-
-                <TextBlock Margin="10,5,10,5" Style="{StaticResource HeaderTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
-
+                <!-- SP logged in -->
+                <StackPanel x:Name="SPLoggedIn" Visibility="Visible" Orientation="Vertical" Padding="8" Margin="16">
+                    <TextBox Header="Title: " TextWrapping="Wrap" Text="{x:Bind ViewModel.Richting.Title, Mode=TwoWay}" />
+                    <TextBox  Header="Omschrijving: " TextWrapping="Wrap" FontSize="15" Text="{x:Bind ViewModel.Richting.Description, Mode=TwoWay}" Height="450" />
+                    <Button x:Name="btnSave"  Content="Save" Command="{x:Bind ViewModel.SaveCommand}"/>
+                </StackPanel>
 
             </StackPanel>
 
