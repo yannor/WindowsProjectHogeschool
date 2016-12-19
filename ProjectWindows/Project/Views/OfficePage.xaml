@@ -121,13 +121,6 @@
                     <TextBlock  FontSize="15" Style="{StaticResource SubtitleTextBlockStyle}" Text="{x:Bind ViewModel.Richting.Description2, Mode=TwoWay}" />
 
                     <Pivot>
-                        <PivotItem Header="Voorkennis">
-                            <!--Pivot content goes here-->
-                            <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10" >
-                                <TextBlock Text="{x:Bind ViewModel.Richting.Voorkennis, Mode=TwoWay}" Margin="40,10,40,10"/>
-                            </StackPanel>
-                        </PivotItem>
-
                         <PivotItem Header="Praktijk voorop">
                             <!--Pivot content goes here-->
                             <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10">
@@ -155,12 +148,6 @@
                     <TextBox Header="Beschrijving 2" TextWrapping="Wrap"  FontSize="15" Text="{x:Bind ViewModel.Richting.Description2, Mode=TwoWay}" Height="100"/>
 
                     <Pivot>
-                        <PivotItem Header="Voorkennis">
-                            <!--Pivot content goes here-->
-                            <StackPanel BorderBrush="Black" BorderThickness="1" Margin="40,10,40,10" >
-                                <TextBox Header="Voorkennis"  TextWrapping="Wrap" Text="{x:Bind ViewModel.Richting.Voorkennis, Mode=TwoWay}" Margin="40,10,40,10" Height="200"/>
-                            </StackPanel>
-                        </PivotItem>
 
                         <PivotItem Header="Praktijk voorop">
                             <!--Pivot content goes here-->
