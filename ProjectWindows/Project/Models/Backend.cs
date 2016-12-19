@@ -13,7 +13,7 @@ namespace Project.Models
     {
         public const String API_URL = "http://localhost:23938/api/";
 
-        public async Task<Campus> GetCampus(int id)
+        public static async Task<Campus> GetCampus(int id)
         {
             Campus campus = null;
             try
@@ -34,7 +34,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<List<Campus>> GetCampussen()
+        public static async Task<List<Campus>> GetCampussen()
         {
             List<Campus> campussen = null;
             try
@@ -55,7 +55,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<bool> PostCampus(Campus c)
+        public static async Task<bool> PostCampus(Campus c)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<bool> PutCampus(Campus c)
+        public static async Task<bool> PutCampus(Campus c)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<Richting> GetRichting(int id)
+        public static async Task<Richting> GetRichting(int id)
         {
             Richting campus = null;
             try
@@ -119,7 +119,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<List<Richting>> GetRichtingen()
+        public static async Task<List<Richting>> GetRichtingen()
         {
             List<Richting> campussen = null;
             try
@@ -140,7 +140,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<bool> PostRichting(Richting c)
+        public static async Task<bool> PostRichting(Richting c)
         {
             try
             {
@@ -162,7 +162,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<bool> PutRichting(Richting c)
+        public static async Task<bool> PutRichting(Richting c)
         {
             try
             {
@@ -183,7 +183,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<Gebruiker> GetGebruiker(int id)
+        public static async Task<Gebruiker> GetGebruiker(int id)
         {
             Gebruiker campus = null;
             try
@@ -204,7 +204,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<List<Gebruiker>> GetGebruikers()
+        public static async Task<List<Gebruiker>> GetGebruikers()
         {
             List<Gebruiker> campussen = null;
             try
@@ -225,7 +225,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<bool> PostGebruiker(Gebruiker c)
+        public static async Task<bool> PostGebruiker(Gebruiker c)
         {
             try
             {
@@ -247,7 +247,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<bool> PutGebruiker(Gebruiker c)
+        public static async Task<bool> PutGebruiker(Gebruiker c)
         {
             try
             {
@@ -268,7 +268,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<Evenement> GetEvenement(int id)
+        public static async Task<Evenement> GetEvenement(int id)
         {
             Evenement campus = null;
             try
@@ -289,7 +289,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<List<Evenement>> GetEvenementen()
+        public static async Task<List<Evenement>> GetEvenementen()
         {
             List<Evenement> campussen = null;
             try
@@ -310,7 +310,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<bool> PostEvenement(Evenement c)
+        public static async Task<bool> PostEvenement(Evenement c)
         {
             try
             {
@@ -332,7 +332,7 @@ namespace Project.Models
             }
         }
 
-        public async Task<bool> PutEvenement(Evenement c)
+        public static async Task<bool> PutEvenement(Evenement c)
         {
             try
             {
