@@ -29,11 +29,18 @@ namespace Project.Views
             //NieuwsItems.ItemsSource
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
             showPointOnMap();
+            loadEvs();
 
+            
+        }
+
+
+        private async void loadEvs()
+        {
             InfomomentenItems.ItemsSource = await ViewModel.getEvents();
             InfomomentenLoggedIn.ItemsSource = await ViewModel.getEvents();
         }
@@ -160,9 +167,7 @@ namespace Project.Views
         {
             Button obj = (Button)sender;
             Evenement ev = (Evenement)obj.DataContext;
-            DeleteItem(ev);
-           
-
+            DeleteItem(ev);          
         }
 
         private void DeleteItem(Evenement e)
@@ -170,6 +175,7 @@ namespace Project.Views
            
             ViewModel.deleteEvent(e);
             
+
 
         }
 
@@ -202,8 +208,14 @@ namespace Project.Views
         private void AddEvenement(Evenement e)
         {
 
-            ViewModel.addEvent(e);           
+            ViewModel.addEvent(e);
+            
 
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            loadEvs();
         }
     }
 }
