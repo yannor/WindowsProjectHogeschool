@@ -48,20 +48,19 @@
             </Grid.RowDefinitions>
 
             <TextBox x:Name="txtUsername" Header="Gebruikersnaam: " 
-                     Grid.Row="0" PlaceholderText="admin" Margin="8" />
+                     Grid.Row="0" PlaceholderText="gebruikersnaam" Margin="8" />
 
             <PasswordBox x:Name="txtPassword" Header="Wachtwoord: " 
-                         Grid.Row="1" Margin="8" />
+                         Grid.Row="1" Margin="8" PlaceholderText="wachtwoord" />
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="btnLogin" Grid.Column="0" Content="Inloggen" 
+                <Button x:Name="btnLogin" Content="Inloggen" Grid.ColumnSpan="2"
                         HorizontalAlignment="Stretch" Margin="8" Click="btnLogin_Click"/>
-                <Button x:Name="btnRegister" Grid.Column="1" Content="Registreren" 
-                        HorizontalAlignment="Stretch"  Margin="8" Click="btnRegister_Click"/>
+               
             </Grid>
         </Grid>
 

@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Project.App">
-      <uap:VisualElements DisplayName="Project.App" Square150x150Logo="Assets\windowsIconSplash.png" Square44x44Logo="Assets\windowsIconSplash.png" Description="Sample" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="Hogent Campus Aalst" Square150x150Logo="Assets\windowsIconSplash.png" Square44x44Logo="Assets\windowsIconSplash.png" Description="Showcase van campus Aalst" BackgroundColor="transparent">
         <uap:LockScreen Notification="badge" BadgeLogo="Assets\windowsIconSplash.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\windowsIconSplash.png" Square310x310Logo="Assets\windowsIconSplash.png" Square71x71Logo="Assets\windowsIconSplash.png">
           <uap:ShowNameOnTiles>

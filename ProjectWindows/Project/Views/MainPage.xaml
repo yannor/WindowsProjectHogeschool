@@ -107,7 +107,7 @@
 
                         <TextBlock x:Name="Infomomenten" Padding="5" Text="Infomomenten en Opendeurdagen" FontSize="18" FontWeight="Bold"/>
 
-                        <ListView x:Name="InfomomentenItems" ItemsSource="{Binding Campus.Evenementen}" Margin="5,5,5,50">
+                        <ListView x:Name="InfomomentenItems" Margin="5,5,5,50">
                             <ListView.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Horizontal"/>
@@ -121,7 +121,7 @@
                                         </Border>
                                         <TextBlock Text="{Binding Datum, Mode=TwoWay}" Margin="10,10,10,0" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource BaseTextBlockStyle}"/>
                                         <TextBlock Text="{Binding Uur, Mode=TwoWay}" Margin="10,0,10,5" HorizontalAlignment="Center" FontSize="14" Style="{StaticResource BodyTextBlockStyle}"/>
-                                        <TextBlock Text="{Binding Uitleg, Mode=TwoWay}" Margin="10,5,10,5" Style="{StaticResource BodyTextBlockStyle}"/>
+                                        <TextBlock Text="{Binding Uitleg, Mode=TwoWay}" Margin="10,5,10,5" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="Wrap" MaxWidth="300"/>
                                         <Button Content="Voeg toe aan kalender" Margin="10,5,10,5" Background="#FF0081C5"  HorizontalAlignment="Center"  Click="AddToCalender"/>
                                     </StackPanel>
                                 </DataTemplate>
@@ -146,7 +146,7 @@
                         <TextBox TextWrapping="Wrap" Header="Beschrijving"  Margin="5,0,5,50" Padding="0,5,0,5" Text="{x:Bind ViewModel.Campus.Uitleg, Mode=TwoWay}" RelativePanel.Below="campus"/>
                         <TextBlock  Padding="5" Text="Infomomenten en Opendeurdagen" FontSize="18" FontWeight="Bold"/>
 
-                        <ListView ItemsSource="{Binding Campus.Evenementen}" Margin="5,5,5,50">
+                        <ListView  x:Name="InfomomentenLoggedIn" Margin="5,5,5,50">
                             <ListView.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel Orientation="Horizontal"/>

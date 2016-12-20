@@ -20,6 +20,7 @@ namespace Project.Views
 {
     public sealed partial class MainPage : Page
     {
+        
         public MainPage()
         {
             InitializeComponent();
@@ -32,6 +33,9 @@ namespace Project.Views
         {
             base.OnNavigatedTo(e);
             showPointOnMap();
+
+            InfomomentenItems.ItemsSource = await ViewModel.getEvents();
+            InfomomentenLoggedIn.ItemsSource = await ViewModel.getEvents();
         }
 
         //opendeurdag toevoegen aan kalender als evenement
@@ -157,11 +161,16 @@ namespace Project.Views
             Button obj = (Button)sender;
             Evenement ev = (Evenement)obj.DataContext;
             DeleteItem(ev);
+           
+
         }
 
         private void DeleteItem(Evenement e)
         {
-            ViewModel.Campus.Evenementen.Remove(e);
+           
+            ViewModel.deleteEvent(e);
+            
+
         }
 
         private async void btnAddEvenement_Click(object sender, RoutedEventArgs x)
@@ -186,12 +195,15 @@ namespace Project.Views
                 };
 
                 AddEvenement(e);
+                
             }
         }
 
         private void AddEvenement(Evenement e)
         {
-            ViewModel.Campus.Evenementen.Add(e);
+
+            ViewModel.addEvent(e);           
+
         }
     }
 }

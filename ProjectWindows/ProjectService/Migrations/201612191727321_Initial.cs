@@ -36,7 +36,7 @@ namespace ProjectService.Migrations
                 c => new
                     {
                         GebruikerID = c.Int(nullable: false, identity: true),
-                        Gebruikersnaam = c.String(),
+                        Gebruikersnaam = c.String(nullable: false),
                         Wachtwoord = c.String(),
                     })
                 .PrimaryKey(t => t.GebruikerID);

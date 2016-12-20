@@ -9,44 +9,48 @@ using Project.Models;
 using Template10.Mvvm;
 using Template10.Services.NavigationService;
 using Project.Services.ProjectService;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace Project.ViewModels
 {
     public class LoginPageViewModel : ProjectViewModelBase
     {
+
+        ObservableCollection<Gebruiker> gs = new ObservableCollection<Gebruiker>();
+
         public LoginPageViewModel()
         {
             //IsLoggedIn = true;
             // _richting = new Richting() { Description="", Html="http://google.com", Title=""};
         }
-        
-        public bool Register(Gebruiker g)
-        {
-            foreach(Gebruiker i in DummyDataSource.Admins)
-            {
-                if (i.Gebruikersnaam == g.Gebruikersnaam)
-                    return false;
-            }
 
-            DummyDataSource.Admins.Add(g);
 
-            return true;
-        }
-
-        public bool Login(String username, String password)
+        public async Task<bool> Login(String username, String password)
         {
             //List<Gebruiker> admins = Backend.GetGebruikers().Result;
 
-            foreach (Gebruiker g in DummyDataSource.Admins)
+            HttpClient client = new HttpClient();
+            var jsonString = await client.GetStringAsync(new Uri("http://localhost:23938/api/gebruikers"));
+            gs = JsonConvert.DeserializeObject<ObservableCollection<Gebruiker>>(jsonString);
+
+            bool x = false;
+
+
+            foreach (Gebruiker g in gs)
             {
-                if (g.Gebruikersnaam == username && g.Wachtwoord == g.Wachtwoord)
+                if (g.Gebruikersnaam.Equals(username) && g.Wachtwoord.Equals(password))
                 {
                     ProjectService.Instance.CurrentUSer = g;
                     ProjectService.Instance.IsLoggedIn = true;
                     IsLoggedIn = true;
                     return true;
+
                 }
             }
+
+
 
             return false;
         }

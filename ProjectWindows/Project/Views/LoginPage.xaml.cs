@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Project.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
@@ -26,6 +30,8 @@ namespace Project.Views
     /// </summary>
     public sealed partial class LoginPage : Page
     {
+        
+
         public LoginPage()
         {
             this.InitializeComponent();
@@ -36,23 +42,14 @@ namespace Project.Views
             String password = txtPassword.Password;
             String username = txtUsername.Text;
 
-            bool x = viewmodel.Login(username, password);
-            
+   
+            bool x= await viewmodel.Login(username, password);
 
+ 
             MessageDialog md = new MessageDialog(x ? "Succesvol ingelogd" : "Foutieve gebruikersnaam of wachtwoord", "Login");
             await md.ShowAsync();
         }
 
-        private async void btnRegister_Click(object sender, RoutedEventArgs e)
-        {
-            String password = txtPassword.Password;
-            String username = txtUsername.Text;
-
-            bool x = viewmodel.Register(new Models.Gebruiker(username, password));
-
-            MessageDialog md = new MessageDialog(x ? "Account geregistreerd!" : "Gebruikersnaam bestaat al!", "Register");
-            await md.ShowAsync();
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -62,7 +59,7 @@ namespace Project.Views
         private void SendNotification(object s, RoutedEventArgs e)
         {
             String msg = txtInput.Text;
-            String xml = "<toast launch=\"app - defined - string\">"
+            String xml = "<toast launch=\"app-defined-string\">"
                 + "<visual>"
                 + "<binding template=\"ToastGeneric\">"
                 + "<text>HoGent Campus Aalst</text>"
