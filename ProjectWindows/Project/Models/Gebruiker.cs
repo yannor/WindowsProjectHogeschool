@@ -21,12 +21,12 @@ namespace Project.Models
 
         public int GebruikerID { get; set; }
 
-        public String Gebruikersnaam { get; private set; }
+        public String Gebruikersnaam { get;  set; }
 
 
         /// <summary>
         /// Todo: WW encrypteren?
         /// </summary>
-        public String Wachtwoord { get; private set; }
+        public String Wachtwoord { get;  set; }
     }
 }
