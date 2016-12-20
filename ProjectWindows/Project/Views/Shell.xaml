@@ -84,7 +84,7 @@
                                 Symbol="Contact" />
                     <TextBlock Margin="12,0,0,0"
                                VerticalAlignment="Center"
-                               Text="User profile" />
+                               Text="Admin console" />
                 </StackPanel>
             </Controls:HamburgerButtonInfo>
             <!--  settingspage button  -->
