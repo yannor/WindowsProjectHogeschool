@@ -20,7 +20,7 @@ namespace Project.Views
 {
     public sealed partial class MainPage : Page
     {
-        ObservableCollection<Evenement> evs = new ObservableCollection<Evenement>();
+        
         public MainPage()
         {
             InitializeComponent();
@@ -34,11 +34,8 @@ namespace Project.Views
             base.OnNavigatedTo(e);
             showPointOnMap();
 
-            HttpClient client = new HttpClient();
-            var jsonString = await client.GetStringAsync(new Uri("http://localhost:23938/api/evenementen"));
-            evs = JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(jsonString);
-            InfomomentenItems.ItemsSource = evs;
-            InfomomentenLoggedIn.ItemsSource = evs;
+            InfomomentenItems.ItemsSource = await ViewModel.getEvents();
+            InfomomentenLoggedIn.ItemsSource = await ViewModel.getEvents();
         }
 
         //opendeurdag toevoegen aan kalender als evenement
@@ -164,23 +161,15 @@ namespace Project.Views
             Button obj = (Button)sender;
             Evenement ev = (Evenement)obj.DataContext;
             DeleteItem(ev);
-            
+           
+
         }
 
-        private async void DeleteItem(Evenement e)
+        private void DeleteItem(Evenement e)
         {
-            ViewModel.Campus.Evenementen.Remove(e);
+           
+            ViewModel.deleteEvent(e);
             
-            var jsonString = JsonConvert.SerializeObject(e);
-            HttpClient client = new HttpClient();
-           // var res = await client.DeleteAsync("http://localhost:23938/api/evenementen", new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json"));
-
-            var response = await client.DeleteAsync("http://localhost:23938/api/evenementen/"+e.EvenementID);
-            if (response.IsSuccessStatusCode)
-            {
-                var result = await response.Content.ReadAsStringAsync();
-                evs.Remove(e);
-            }
 
         }
 
@@ -206,19 +195,15 @@ namespace Project.Views
                 };
 
                 AddEvenement(e);
+                
             }
         }
 
-        private async void AddEvenement(Evenement e)
+        private void AddEvenement(Evenement e)
         {
-            ViewModel.Campus.Evenementen.Add(e);
 
+            ViewModel.addEvent(e);           
 
-            evs.Add(e);
-
-            var jsonString = JsonConvert.SerializeObject(e);
-            HttpClient client = new HttpClient();
-            var res = await client.PostAsync("http://localhost:23938/api/evenementen", new StringContent(jsonString, System.Text.Encoding.UTF8, "application/json"));
         }
     }
 }
